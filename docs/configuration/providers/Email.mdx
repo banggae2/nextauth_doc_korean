@@ -1,0 +1,66 @@
+---
+id: email
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Email
+### Nodemailer 설치 방법
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    ```bash showLineNumbers
+    npm install nodemailer
+    ```
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    ```bash showLineNumbers
+    yarn add nodemailer
+    ```
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    ```bash showLineNumbers
+    pnpm add nodemailer
+    ```
+  </TabItem>
+</Tabs>
+### 사용 방법
+
+Email 공급자는 사용자가 클릭하여 로그인할 수 있는 "매직 링크"를 이메일로 전송합니다. Slack과 같은 소프트웨어를 사용해 본 적이 있다면 이 링크를 봤을 것입니다.
+
+OAuth 서비스와 함께 이메일을 통한 로그인 지원을 추가하면 사용자가 OAuth 계정에 접근할 수 없는 경우(예: 계정이 잠기거나 삭제된 경우)에도 로그인할 수 있는 방법을 제공합니다.
+
+구성은 다른 공급자와 유사하지만 옵션은 다릅니다:
+
+```javascript title="pages/api/auth/[...nextauth].js"
+import EmailProvider from "next-auth/providers/email"
+
+...
+providers: [
+  EmailProvider({
+    server: process.env.EMAIL_SERVER,
+    from: process.env.EMAIL_FROM,
+    // maxAge: 24 * 60 * 60,
+    // 이메일 링크가 유효한 시간(기본값: 24시간)
+  }),
+],
+...
+```
+
+Email 로그인 구성 방법에 대한 자세한 내용은 [이메일 공급자 문서](https://next-auth.js.org/providers/email)를 참조하십시오.
+
+:::note[참고]
+이메일 공급자는 데이터베이스가 필요하며, 데이터베이스 없이 사용할 수 없습니다.
+:::
+
+### 옵션
+
+| 이름 | 설명 | 유형 | 필수 여부 |
+|------|---------------|----------|-------|
+| id | 공급자의 고유 ID | `string` | 아니오 |
+| name | 공급자에 대한 설명적 이름 | `string` | 아니오 |
+| type | 공급자의 유형, 이 경우 `email` | `"email"` | 아니오 |
+| server | 이메일 서버를 가리키는 경로 또는 객체 | `string` 또는 `Object` | 아니오 |
+| sendVerificationRequest | 인증 요청을 보내기 위해 실행할 콜백,<br/>기본값은 nodemailer 사용 | `(params) => Promise<undefined>` | 아니오 |
+| from | 이메일이 발송되는 이메일 주소,<br/>기본값: "[no-reply@example.com](mailto:no-reply@example.com)" | `string` | 아니오 |
+| maxAge | 사용자가 로그인하는 데 이메일을 사용할 수 있는 시간(초) 기본값: 1일 | `number` | 아니오 |
