@@ -54,4 +54,4 @@ NextAuth.js 개발을 금전적으로 지원하고 싶다면 [OpenCollective](ht
 
 ## 시작하기
 
-[예시 코드를 확인하세요](/getting-started/example) NextAuth.js를 사용해 인증을 얼마나 쉽게 구현할 수 있는지 볼 수 있습니다.
+[예시 코드를 확인하세요](https://nextauth-ko.wsbox.pw/docs/getting-started/example) NextAuth.js를 사용해 인증을 얼마나 쉽게 구현할 수 있는지 볼 수 있습니다.
