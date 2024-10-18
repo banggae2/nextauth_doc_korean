@@ -10,7 +10,7 @@ TypeScript와 함께 `next-auth`를 사용하는 방법을 보여주는 예제 �
 
 ___
 
-## 어댑터[](https://next-auth.js.org/getting-started/typescript#adapters "직접 링크")
+## 어댑터[](https://nextauth-ko.wsbox.pw/docs/getting-started/typescript#adapters "직접 링크")
 
 자체 커스텀 어댑터를 작성하는 경우, 타입을 활용하여 구현이 예상되는 대로 준수하는지 확인할 수 있습니다:
 
@@ -41,11 +41,11 @@ function MyAdapter() {
 VSCode나 WebStorm과 같은 강력한 TypeScript 통합을 가진 코드 편집기에서 작동합니다. VIM이나 Atom과 같은 경량 편집기를 사용하는 경우에는 작동하지 않을 수 있습니다.
 :::
 
-## 모듈 확장[](https://next-auth.js.org/getting-started/typescript#module-augmentation "직접 링크")
+## 모듈 확장[](https://nextauth-ko.wsbox.pw/docs/getting-started/typescript#module-augmentation "직접 링크")
 
 `next-auth`는 서브모듈 전반에 걸쳐 공유되는 특정 타입/인터페이스를 제공합니다. 좋은 예는 `Session`과 `JWT`입니다. 이상적으로는 이러한 타입을 한 곳에서만 생성하면 되고, TypeScript는 참조되는 모든 위치에서 이를 인식해야 합니다. 다행히도, 모듈 확장은 바로 그 역할을 합니다. 공유 인터페이스를 한 곳에 정의하고, `next-auth`(또는 그 서브모듈 중 하나)를 사용할 때 애플리케이션 전반에 걸쳐 타입 안전성을 확보할 수 있습니다.
 
-### 메인 모듈[](https://next-auth.js.org/getting-started/typescript#main-module "직접 링크")
+### 메인 모듈[](https://nextauth-ko.wsbox.pw/docs/getting-started/typescript#main-module "직접 링크")
 
 `Session`을 살펴보겠습니다:
 
@@ -97,7 +97,7 @@ declare module "next-auth" {
 }
 ```
 
-#### 기본 인터페이스 속성 확장[](https://next-auth.js.org/getting-started/typescript#extend-default-interface-properties "직접 링크")
+#### 기본 인터페이스 속성 확장[](https://nextauth-ko.wsbox.pw/docs/getting-started/typescript#extend-default-interface-properties "직접 링크")
 
 기본적으로 TypeScript는 새로운 인터페이스 속성을 병합하고 기존 속성을 덮어씁니다. 이 경우, 기본 세션 사용자 속성이 덮어씌워지고 위에서 정의한 새로운 속성이 추가됩니다.
 
@@ -120,7 +120,7 @@ declare module "next-auth" {
 }
 ```
 
-#### 보강할 인기 있는 인터페이스[](https://next-auth.js.org/getting-started/typescript#popular-interfaces-to-augment "직접 링크")
+#### 보강할 인기 있는 인터페이스[](https://nextauth-ko.wsbox.pw/docs/getting-started/typescript#popular-interfaces-to-augment "직접 링크")
 
 거의 모든 것을 보강할 수 있지만, `next-auth` 모듈에서 오버라이드하고자 할 수 있는 더 일반적인 인터페이스는 다음과 같습니다:
 
@@ -145,7 +145,7 @@ interface Profile {}
 
 프로젝트의 `tsconfig.json` 파일에 `types` 폴더가 [`typeRoots`](https://www.typescriptlang.org/tsconfig/#typeRoots)에 추가되어 있는지 확인하세요.
 
-### 서브모듈[](https://next-auth.js.org/getting-started/typescript#submodules "직접 링크")
+### 서브모듈[](https://nextauth-ko.wsbox.pw/docs/getting-started/typescript#submodules "직접 링크")
 
 `JWT` 인터페이스는 `next-auth/jwt` 서브모듈에서 찾을 수 있습니다:
 
@@ -165,12 +165,12 @@ declare module "next-auth/jwt" {
 }
 ```
 
-### 유용한 링크[](https://next-auth.js.org/getting-started/typescript#useful-links "직접 링크")
+### 유용한 링크[](https://nextauth-ko.wsbox.pw/docs/getting-started/typescript#useful-links "직접 링크")
 
 1.  [TypeScript 문서: 모듈 확장](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation)
 2.  [Digital Ocean: TypeScript에서의 모듈 확장](https://www.digitalocean.com/community/tutorials/typescript-module-augmentation)
 
-## 기여하기[](https://next-auth.js.org/getting-started/typescript#contributing "직접 링크")
+## 기여하기[](https://nextauth-ko.wsbox.pw/docs/getting-started/typescript#contributing "직접 링크")
 
 모든 종류의 기여는 항상 환영합니다, 특히 TypeScript 관련 기여는 더욱 그렇습니다. 우리는 이 프로젝트를 여가 시간에 작업하는 소규모 팀임을 명심해 주세요. 지원을 제공하기 위해 최선을 다하겠지만, 문제에 대한 해결책이 있다고 생각되면 PR을 열어주세요!
 

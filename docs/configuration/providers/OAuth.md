@@ -6,8 +6,8 @@ id: oauth
 
 **NextAuth.js**의 인증 제공자는 사용자가 선호하는 기존 로그인으로 로그인할 수 있도록 하는 OAuth 정의입니다. 여러 사전 정의된 제공자를 사용하거나 자신만의 사용자 정의 OAuth 구성을 작성할 수 있습니다.
 
-- [내장 OAuth 제공자 사용하기](https://next-auth.js.org/configuration/providers/oauth#built-in-providers) (예: Github, Twitter, Google 등)
-- [사용자 정의 OAuth 제공자 사용하기](https://next-auth.js.org/configuration/providers/oauth#using-a-custom-provider)
+- [내장 OAuth 제공자 사용하기](https://nextauth-ko.wsbox.pw/docs/configuration/providers/oauth#built-in-providers) (예: Github, Twitter, Google 등)
+- [사용자 정의 OAuth 제공자 사용하기](https://nextauth-ko.wsbox.pw/docs/configuration/providers/oauth#using-a-custom-provider)
 
 :::note[참고]
 NextAuth.js는 모든 OAuth 서비스와 함께 작동하도록 설계되었으며, **OAuth 1.0**, **1.0A**, **2.0** 및 **OpenID Connect**를 지원하며, 대부분의 인기 로그인 서비스에 대한 기본 지원을 제공합니다.
@@ -67,7 +67,7 @@ OAuth 흐름은 일반적으로 6단계로 구성됩니다:
 
 7. 제공자가 설정되면 다음 URL에서 로그인할 수 있습니다: `[origin]/api/auth/signin`. 이는 구성된 모든 제공자가 포함된 브랜드가 없는 자동 생성 페이지입니다.
 
-   ![Signin Screenshot](https://next-auth.js.org/img/signin.png)
+   ![Signin Screenshot](https://nextauth-ko.wsbox.pw/docs/img/signin.png)
 
 ## 옵션
 
@@ -245,7 +245,7 @@ userinfo: {
 
 ### `allowDangerousEmailAccountLinking` 옵션
 
-일반적으로 OAuth 공급업체를 통해 로그인할 때 동일한 이메일 주소를 가진 다른 계정이 이미 존재하는 경우 계정이 자동으로 연결되지 않습니다. 로그인 시 자동 계정 연결은 임의의 공급업체 간에는 안전하지 않으며 기본적으로 비활성화되어 있습니다([보안 FAQ](https://next-auth.js.org/faq#security) 참조). 그러나 관련 제공업체가 계정과 연결된 이메일 주소를 안전하게 확인했다고 신뢰하는 경우 자동 계정 연결을 허용하는 것이 바람직할 수 있습니다. 자동 계정 연결을 사용하려면 공급자 구성에서 `allowDangerousEmailAccountLinking: true`를 설정하면 됩니다.
+일반적으로 OAuth 공급업체를 통해 로그인할 때 동일한 이메일 주소를 가진 다른 계정이 이미 존재하는 경우 계정이 자동으로 연결되지 않습니다. 로그인 시 자동 계정 연결은 임의의 공급업체 간에는 안전하지 않으며 기본적으로 비활성화되어 있습니다([보안 FAQ](https://nextauth-ko.wsbox.pw/docs/faq#security) 참조). 그러나 관련 제공업체가 계정과 연결된 이메일 주소를 안전하게 확인했다고 신뢰하는 경우 자동 계정 연결을 허용하는 것이 바람직할 수 있습니다. 자동 계정 연결을 사용하려면 공급자 구성에서 `allowDangerousEmailAccountLinking: true`를 설정하면 됩니다.
 
 사용자가 이미 어떤 제공업체에 로그인한 경우 다른 제공업체를 통해 다시 `signIn`을 사용할 때 새 제공업체 계정은 인증된 동일한 사용자에게 자동으로 연결됩니다. 이는 각 제공업체 계정의 기본 이메일에 관계없이 발생합니다. 이 흐름은 `allowDangerousEmailAccountLinking`의 영향을 받지 않습니다.
 
@@ -389,7 +389,7 @@ Zoom,
 
 ## 기본 옵션 재정의
 
-내장된 제공자를 사용하는 경우, 대개 `clientId`와 `clientSecret`만 지정하면 됩니다. 기본값을 재정의해야 할 경우, [옵션](https://next-auth.js.org/configuration/providers/oauth#options)을 추가하세요.
+내장된 제공자를 사용하는 경우, 대개 `clientId`와 `clientSecret`만 지정하면 됩니다. 기본값을 재정의해야 할 경우, [옵션](https://nextauth-ko.wsbox.pw/docs/configuration/providers/oauth#options)을 추가하세요.
 
 내장된 공급자를 사용하는 경우에도 이러한 옵션을 재정의하여 기본 구성을 조정할 수 있습니다.
 

@@ -27,11 +27,11 @@ id: warnings
 
 #### NO_SECRET
 
-개발 중에는 편의를 위해 구성에 따라 `secret`이 생성됩니다. 이는 휘발성이며 프로덕션에서는 오류를 발생시킵니다. [자세히 알아보기](https://next-auth.js.org/configuration/options#secret)
+개발 중에는 편의를 위해 구성에 따라 `secret`이 생성됩니다. 이는 휘발성이며 프로덕션에서는 오류를 발생시킵니다. [자세히 알아보기](https://nextauth-ko.wsbox.pw/docs/configuration/options#secret)
 
 #### TWITTER_OAUTH_2_BETA
 
-Twitter OAuth 2.0은 현재 베타 상태이며, 특정 변경이 필요할 수 있습니다. 이는 세맨틱 버전 관리의 적용을 받지 않습니다. 문서 [여기](https://next-auth.js.org/providers/twitter#oauth-2)를 참조하세요.
+Twitter OAuth 2.0은 현재 베타 상태이며, 특정 변경이 필요할 수 있습니다. 이는 세맨틱 버전 관리의 적용을 받지 않습니다. 문서 [여기](https://nextauth-ko.wsbox.pw/docs/providers/twitter#oauth-2)를 참조하세요.
 
 #### EXPERIMENTAL_API
 
@@ -41,7 +41,7 @@ Twitter OAuth 2.0은 현재 베타 상태이며, 특정 변경이 필요할 수 
 
 `debug` 옵션이 활성화되었습니다. 이는 개발 전용으로, 인증 흐름의 문제를 포착하는 데 도움을 주며, 프로덕션 배포 시 이 옵션을 제거하는 것이 좋습니다. `debug: process.env.NODE_ENV !== "production"`과 같이 설정하여 프로덕션에서만 디버깅을 허용할 수 있습니다. 이를 통해 값을 변경할 필요 없이 커밋할 수 있습니다.
 
-프로덕션에서 디버그 메시지를 기록하려면 잠재적으로 민감한 사용자 정보를 적절히 위생 처리하는 [`logger` 옵션](https://next-auth.js.org/configuration/options#logger)을 설정하는 것을 권장합니다.
+프로덕션에서 디버그 메시지를 기록하려면 잠재적으로 민감한 사용자 정보를 적절히 위생 처리하는 [`logger` 옵션](https://nextauth-ko.wsbox.pw/docs/configuration/options#logger)을 설정하는 것을 권장합니다.
 
 ## 어댑터
 

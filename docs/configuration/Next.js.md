@@ -3,7 +3,7 @@ id: nextjs
 ---
 # Next.js
 
-## `getServerSession`[](https://next-auth.js.org/configuration/nextjs#getserversession "헤딩으로 직접 링크")
+## `getServerSession`[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#getserversession "헤딩으로 직접 링크")
 
 :::tip[팁]
 `authOptions`를 전달할 필요 없이 도우미 함수를 생성할 수 있습니다:
@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions = {
 export default NextAuth(authOptions)
 ```
 
-### `getServerSideProps`에서:[](https://next-auth.js.org/configuration/nextjs#in-getserversideprops "헤딩으로 직접 링크")
+### `getServerSideProps`에서:[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#in-getserversideprops "헤딩으로 직접 링크")
 
 ```typescript
 import { authOptions } from "pages/api/auth/[...nextauth]"
@@ -70,7 +70,7 @@ export async function getServerSideProps(context) {
 }
 ```
 
-### API 라우트에서:[](https://next-auth.js.org/configuration/nextjs#in-api-routes "헤딩으로 직접 링크")
+### API 라우트에서:[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#in-api-routes "헤딩으로 직접 링크")
 
 ```typescript
 import { authOptions } from "pages/api/auth/[...nextauth]"
@@ -88,7 +88,7 @@ export default async function handler(req, res) {
 }
 ```
 
-### 앱 라우터에서:[](https://next-auth.js.org/configuration/nextjs#in-app-router "헤딩으로 직접 링크")
+### 앱 라우터에서:[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#in-app-router "헤딩으로 직접 링크")
 
 Next.js의 서버 컴포넌트에서도 `getServerSession`을 사용할 수 있습니다:
 
@@ -108,33 +108,33 @@ export default async function Page() {
 :::danger[주의]
 현재, 기본 Next.js `cookies()` 메서드는 요청 쿠키에 대해 [읽기 전용 액세스](https://beta.nextjs.org/docs/api-reference/cookies)만 제공합니다. 이는 서버 컴포넌트에서 `session`에서 `expires` 값이 제거됨을 의미합니다. 또한, 세션에는 고정 만료 시간이 있어 사용자가 다시 로그인해야 하는 시점이 있습니다(기본 만료는 30일입니다).
 :::
-### 캐싱[](https://next-auth.js.org/configuration/nextjs#caching "헤딩으로 직접 링크")
+### 캐싱[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#caching "헤딩으로 직접 링크")
 
 이 함수를 사용하면 개인화된 데이터가 포함되므로 [공용 캐시](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)에 페이지나 API를 저장하지 않아야 합니다. 예를 들어, [Vercel](https://vercel.com/docs/concepts/functions/serverless-functions/edge-caching)과 같은 호스트는 이 함수에서 설정된 `set-cookie` 헤더 때문에 공용 캐싱을 암묵적으로 방지합니다.
 
-## `unstable_getServerSession`[](https://next-auth.js.org/configuration/nextjs#unstable_getserversession "헤딩으로 직접 링크")
+## `unstable_getServerSession`[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#unstable_getserversession "헤딩으로 직접 링크")
 
 이 메서드는 `getServerSession`으로 이름이 변경되었습니다. 위의 문서를 참조하세요.
 
-## 미들웨어[](https://next-auth.js.org/configuration/nextjs#middleware "헤딩으로 직접 링크")
+## 미들웨어[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#middleware "헤딩으로 직접 링크")
 
 NextAuth.js와 함께 Next.js 미들웨어를 사용하여 사이트를 보호할 수 있습니다.
 
 Next.js 12는 [미들웨어](https://nextjs.org/docs/middleware)를 도입했습니다. 이는 정적 페이지라도 접근하기 전에 로직을 실행할 수 있는 방법입니다. Vercel과 같은 플랫폼에서는 미들웨어가 [엣지](https://nextjs.org/docs/api-reference/edge-runtime)에서 실행됩니다.
 
-다음 옵션들이 익숙하게 보인다면, 이는 [이 옵션들](https://next-auth.js.org/configuration/options#options)의 하위 집합이기 때문입니다. 이를 공통 구성 객체로 추출하여 재사용할 수 있습니다. 미래에는 모든 것을 미들웨어에서 실행할 수 있기를 바랍니다. ([제한 사항](https://next-auth.js.org/configuration/nextjs#caveats)을 참조하세요).
+다음 옵션들이 익숙하게 보인다면, 이는 [이 옵션들](https://nextauth-ko.wsbox.pw/docs/configuration/options#options)의 하위 집합이기 때문입니다. 이를 공통 구성 객체로 추출하여 재사용할 수 있습니다. 미래에는 모든 것을 미들웨어에서 실행할 수 있기를 바랍니다. ([제한 사항](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#caveats)을 참조하세요).
 
 `next-auth/middleware`에서 `withAuth` 미들웨어 함수를 기본 또는 명명된 가져오기 방식으로 가져올 수 있습니다:
 
-### 필수 조건[](https://next-auth.js.org/configuration/nextjs#prerequisites "헤딩으로 직접 링크")
+### 필수 조건[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#prerequisites "헤딩으로 직접 링크")
 
-미들웨어에서 사용하는 `secret`을 NextAuth에서도 동일하게 설정해야 합니다. 가장 쉬운 방법은 [`NEXTAUTH_SECRET`](https://next-auth.js.org/configuration/options#nextauth_secret) 환경 변수를 설정하는 것입니다. 이는 [NextAuth 구성](https://next-auth.js.org/configuration/options#options)과 미들웨어 구성 모두에서 사용됩니다.
+미들웨어에서 사용하는 `secret`을 NextAuth에서도 동일하게 설정해야 합니다. 가장 쉬운 방법은 [`NEXTAUTH_SECRET`](https://nextauth-ko.wsbox.pw/docs/configuration/options#nextauth_secret) 환경 변수를 설정하는 것입니다. 이는 [NextAuth 구성](https://nextauth-ko.wsbox.pw/docs/configuration/options#options)과 미들웨어 구성 모두에서 사용됩니다.
 
-또는, 미들웨어 구성에서 [`secret`](https://next-auth.js.org/configuration/nextjs#secret) 옵션을 사용하여 비밀을 제공할 수도 있습니다.
+또는, 미들웨어 구성에서 [`secret`](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#secret) 옵션을 사용하여 비밀을 제공할 수도 있습니다.
 
 **강력히 권장**합니다. `secret` 값을 완전히 `NEXTAUTH_SECRET` 환경 변수로 대체하세요.
 
-### 기본 사용법[](https://next-auth.js.org/configuration/nextjs#basic-usage "헤딩으로 직접 링크")
+### 기본 사용법[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#basic-usage "헤딩으로 직접 링크")
 
 가장 간단한 사용법은 사이트 전체에 대해 인증을 요구하고자 할 때입니다. 다음과 같이 `middleware.js` 파일을 추가할 수 있습니다:
 
@@ -157,15 +157,15 @@ export const config = { matcher: ["/dashboard"] }
 
 ___
 
-### `callbacks`[](https://next-auth.js.org/configuration/nextjs#callbacks "헤딩으로 직접 링크")
+### `callbacks`[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#callbacks "헤딩으로 직접 링크")
 
 - **필수:** 아니오
 
-#### 설명[](https://next-auth.js.org/configuration/nextjs#description "헤딩으로 직접 링크")
+#### 설명[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#description "헤딩으로 직접 링크")
 
 콜백은 특정 작업이 수행될 때 일어나는 일을 제어할 수 있는 비동기 함수입니다.
 
-#### 예제 (기본 값)[](https://next-auth.js.org/configuration/nextjs#example-default-value "헤딩으로 직접 링크")
+#### 예제 (기본 값)[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#example-default-value "헤딩으로 직접 링크")
 
 ```js
 callbacks: {   
@@ -177,11 +177,11 @@ callbacks: {
 
 ___
 
-### `pages`[](https://next-auth.js.org/configuration/nextjs#pages "헤딩으로 직접 링크")
+### `pages`[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#pages "헤딩으로 직접 링크")
 
 - **필수**: _아니오_
 
-#### 설명[](https://next-auth.js.org/configuration/nextjs#description-1 "헤딩으로 직접 링크")
+#### 설명[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#description-1 "헤딩으로 직접 링크")
 
 사용자 지정 로그인 및 오류 페이지를 생성하려는 경우 사용할 URL을 지정하세요. 지정된 페이지는 해당 내장 페이지를 대체합니다.
 
@@ -189,7 +189,7 @@ ___
 `pages` 구성은 `[...nextauth].ts`의 구성과 일치해야 합니다. 이는 `next-auth` 미들웨어가 사용자 지정 페이지를 인식하도록 하여 인증되지 않은 조건이 충족될 때 자신에게 리디렉션되지 않도록 하기 위함입니다.
 :::
 
-#### 예제 (기본 값)[](https://next-auth.js.org/configuration/nextjs#example-default-value-1 "헤딩으로 직접 링크")
+#### 예제 (기본 값)[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#example-default-value-1 "헤딩으로 직접 링크")
 
 ```js
 import { withAuth } from "next-auth/middleware"
@@ -203,19 +203,19 @@ export default withAuth({
 })
 ```
 
-더 많은 정보는 [pages 옵션 문서](https://next-auth.js.org/configuration/pages)를 참조하세요.
+더 많은 정보는 [pages 옵션 문서](https://nextauth-ko.wsbox.pw/docs/configuration/pages)를 참조하세요.
 
 ___
 
-### `secret`[](https://next-auth.js.org/configuration/nextjs#secret "헤딩으로 직접 링크")
+### `secret`[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#secret "헤딩으로 직접 링크")
 
 - **필수:** _아니오_
 
-#### 설명[](https://next-auth.js.org/configuration/nextjs#description-2 "헤딩으로 직접 링크")
+#### 설명[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#description-2 "헤딩으로 직접 링크")
 
-동일한 `secret`이 [NextAuth.js 구성](https://next-auth.js.org/configuration/options#options)에서도 사용됩니다.
+동일한 `secret`이 [NextAuth.js 구성](https://nextauth-ko.wsbox.pw/docs/configuration/options#options)에서도 사용됩니다.
 
-#### 예제 (기본 값)[](https://next-auth.js.org/configuration/nextjs#example-default-value-2 "헤딩으로 직접 링크")
+#### 예제 (기본 값)[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#example-default-value-2 "헤딩으로 직접 링크")
 
 ```js
 secret: process.env.NEXTAUTH_SECRET
@@ -223,14 +223,14 @@ secret: process.env.NEXTAUTH_SECRET
 
 ___
 
-### 고급 사용법[](https://next-auth.js.org/configuration/nextjs#advanced-usage "헤딩으로 직접 링크")
+### 고급 사용법[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#advanced-usage "헤딩으로 직접 링크")
 
 NextAuth.js 미들웨어는 매우 유연하며, 여러 가지 방법으로 사용할 수 있습니다.
 
 :::note[참고]
 옵션을 정의하지 않으면, NextAuth.js는 생략된 옵션에 대해 기본 값을 사용합니다.
 :::
-#### 미들웨어 래핑[](https://next-auth.js.org/configuration/nextjs#wrap-middleware "헤딩으로 직접 링크")
+#### 미들웨어 래핑[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#wrap-middleware "헤딩으로 직접 링크")
 
 
 
@@ -256,7 +256,7 @@ export const config = { matcher: ["/admin"] }
 
 ___
 
-#### 커스텀 JWT 디코드 메서드[](https://next-auth.js.org/configuration/nextjs#custom-jwt-decode-method "헤딩으로 직접 링크")
+#### 커스텀 JWT 디코드 메서드[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#custom-jwt-decode-method "헤딩으로 직접 링크")
 
 `[...nextauth].ts`에서 커스텀 JWT 디코드 메서드를 설정한 경우, `withAuth`에도 동일한 `decode` 메서드를 전달하여 커스텀 서명된 JWT를 올바르게 읽어야 합니다. 일관성을 위해 인코딩/디코딩 로직을 별도의 함수로 추출할 수 있습니다.
 
@@ -296,7 +296,7 @@ export default withAuth({
 })
 ```
 
-### 주의 사항[](https://next-auth.js.org/configuration/nextjs#caveats "헤딩으로 직접 링크")
+### 주의 사항[](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#caveats "헤딩으로 직접 링크")
 
 - 현재는 세션 검증만 지원하며, 로그인 코드의 일부는 Node.js 환경에서 실행되어야 합니다. 미래에는 NextAuth.js가 [엣지](https://nextjs.org/docs/api-reference/edge-runtime)에서 완전히 실행될 수 있도록 하고자 합니다.
-- `"jwt"` [세션 전략](https://next-auth.js.org/configuration/options#session)만 지원합니다. 엣지에서 데이터베이스가 충분히 성숙해져 빠른 경험을 보장할 수 있을 때까지 기다려야 합니다. (엣지 호환 데이터베이스를 알고 있다면, 새로운 [어댑터](https://authjs.dev/guides/creating-a-database-adapter)를 제안해 주세요.)
+- `"jwt"` [세션 전략](https://nextauth-ko.wsbox.pw/docs/configuration/options#session)만 지원합니다. 엣지에서 데이터베이스가 충분히 성숙해져 빠른 경험을 보장할 수 있을 때까지 기다려야 합니다. (엣지 호환 데이터베이스를 알고 있다면, 새로운 [어댑터](https://authjs.dev/guides/creating-a-database-adapter)를 제안해 주세요.)

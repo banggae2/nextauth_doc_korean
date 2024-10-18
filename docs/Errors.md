@@ -20,7 +20,7 @@ NextAuth.js에서 발생하는 오류 목록입니다.
 
 ### CLIENT_FETCH_ERROR
 
-여러 가지 이유로 발생할 수 있습니다. [NextAuth.js를 올바르게 구성했는지](https://next-auth.js.org/configuration/initialization) 확인하고, [`NEXTAUTH_URL`](https://next-auth.js.org/configuration/options#nextauth_url)을 사용한 경우 올바르게 설정되었는지 확인하십시오.
+여러 가지 이유로 발생할 수 있습니다. [NextAuth.js를 올바르게 구성했는지](https://nextauth-ko.wsbox.pw/docs/configuration/initialization) 확인하고, [`NEXTAUTH_URL`](https://nextauth-ko.wsbox.pw/docs/configuration/options#nextauth_url)을 사용한 경우 올바르게 설정되었는지 확인하십시오.
 
 ---
 
@@ -58,7 +58,7 @@ N/A
 
 이 오류는 OAuth 공급자의 승인 URL로 리디렉션하는 동안 발생합니다. 가능한 원인은 다음과 같습니다:
 
-1. 쿠키 처리: PKCE 코드 검증기 또는 내부 상태의 CSRF 토큰 해시 생성을 실패했습니다. 설정되어 있다면 [`cookies` 구성](https://next-auth.js.org/configuration/options#cookies)을 확인하고, 브라우저가 쿠키를 차단하거나 제한하고 있지 않은지 확인하십시오.
+1. 쿠키 처리: PKCE 코드 검증기 또는 내부 상태의 CSRF 토큰 해시 생성을 실패했습니다. 설정되어 있다면 [`cookies` 구성](https://nextauth-ko.wsbox.pw/docs/configuration/options#cookies)을 확인하고, 브라우저가 쿠키를 차단하거나 제한하고 있지 않은지 확인하십시오.
   
 2. OAuth 잘못 구성: OAuth 공급자를 확인하고 URL 및 기타 옵션이 올바르게 설정되었는지 확인하십시오. OAuth v1 공급자를 사용하는 경우 OAuth 토큰 및 OAuth 토큰 비밀을 확인하십시오.
 
@@ -78,11 +78,11 @@ N/A
 
 #### EMAIL_REQUIRES_ADAPTER_ERROR
 
-이메일 인증 공급자는 데이터베이스가 구성된 경우에만 사용할 수 있습니다. 이는 검증 토큰을 저장하는 데 필요합니다. 이메일 공급자에 대한 더 자세한 정보는 [여기](https://next-auth.js.org/providers/email#configuration)에서 확인하십시오.
+이메일 인증 공급자는 데이터베이스가 구성된 경우에만 사용할 수 있습니다. 이는 검증 토큰을 저장하는 데 필요합니다. 이메일 공급자에 대한 더 자세한 정보는 [여기](https://nextauth-ko.wsbox.pw/docs/providers/email#configuration)에서 확인하십시오.
 
 #### CALLBACK_CREDENTIALS_JWT_ERROR
 
-자격 증명 공급자는 세션에 JSON 웹 토큰이 사용될 때만 사용할 수 있습니다. JSON 웹 토큰은 데이터베이스를 지정하지 않은 경우 기본적으로 세션에 사용됩니다. 그러나 데이터베이스를 사용하는 경우 데이터베이스 세션이 기본적으로 활성화되므로 자격 증명 공급자를 사용하려면 [명시적으로 JWT 세션을 활성화해야](https://next-auth.js.org/configuration/options#session) 합니다.
+자격 증명 공급자는 세션에 JSON 웹 토큰이 사용될 때만 사용할 수 있습니다. JSON 웹 토큰은 데이터베이스를 지정하지 않은 경우 기본적으로 세션에 사용됩니다. 그러나 데이터베이스를 사용하는 경우 데이터베이스 세션이 기본적으로 활성화되므로 자격 증명 공급자를 사용하려면 [명시적으로 JWT 세션을 활성화해야](https://nextauth-ko.wsbox.pw/docs/configuration/options#session) 합니다.
 
 자격 증명 공급자를 사용하는 경우 NextAuth.js는 데이터베이스에 사용자 또는 세션을 지속하지 않습니다. 자격 증명 공급자와 함께 사용되는 사용자 계정은 NextAuth.js 외부에서 생성 및 관리해야 합니다.
 
@@ -102,7 +102,7 @@ N/A
 
 #### INVALID_CALLBACK_URL_ERROR
 
-제공된 `callbackUrl`이 유효하지 않거나 정의되지 않았습니다. `callbackUrl`을 지정하는 방법에 대한 자세한 내용은 [여기](https://next-auth.js.org/getting-started/client#specifying-a-callbackurl)에서 확인하십시오.
+제공된 `callbackUrl`이 유효하지 않거나 정의되지 않았습니다. `callbackUrl`을 지정하는 방법에 대한 자세한 내용은 [여기](https://nextauth-ko.wsbox.pw/docs/getting-started/client#specifying-a-callbackurl)에서 확인하십시오.
 
 ---
 
@@ -140,7 +140,7 @@ JWTKeySupport: 키가 HS512 검증 알고리즘을 지원하지 않습니다.
 
 #### NO_SECRET
 
-프로덕션에서는 구성에서 `secret` 속성을 정의할 것으로 예상합니다. 개발 환경에서는 편의를 위해 경고로 표시됩니다. [자세히 보기](https://next-auth.js.org/configuration/options#secret)
+프로덕션에서는 구성에서 `secret` 속성을 정의할 것으로 예상합니다. 개발 환경에서는 편의를 위해 경고로 표시됩니다. [자세히 보기](https://nextauth-ko.wsbox.pw/docs/configuration/options#secret)
 
 #### AUTH_ON_ERROR_PAGE_ERROR
 
@@ -150,6 +150,6 @@ JWTKeySupport: 키가 HS512 검증 알고리즘을 지원하지 않습니다.
 
 유용한 링크:
 
-- [https://next-auth.js.org/configuration/nextjs#pages](https://next-auth.js.org/configuration/nextjs#pages)
-- [https://next-auth.js.org/configuration/pages](https://next-auth.js.org/configuration/pages)
+- [https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#pages](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#pages)
+- [https://nextauth-ko.wsbox.pw/docs/configuration/pages](https://nextauth-ko.wsbox.pw/docs/configuration/pages)
 - [https://nextjs.org/docs/advanced-features/middleware#matcher](https://nextjs.org/docs/advanced-features/middleware#matcher)

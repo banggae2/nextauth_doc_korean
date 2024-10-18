@@ -32,8 +32,8 @@ pages: {
 
 다음 오류는 기본 또는 오버라이드된 오류 페이지에 쿼리 매개변수로 전달됩니다:
 
-- **Configuration**: 서버 구성에 문제가 있습니다. [옵션](https://next-auth.js.org/configuration/options#options)이 올바른지 확인하세요.
-- **AccessDenied**: 주로 [`signIn` 콜백](https://next-auth.js.org/configuration/callbacks#sign-in-callback) 또는 [`redirect` 콜백](https://next-auth.js.org/configuration/callbacks#redirect-callback)을 통해 접근을 제한했을 때 발생합니다.
+- **Configuration**: 서버 구성에 문제가 있습니다. [옵션](https://nextauth-ko.wsbox.pw/docs/configuration/options#options)이 올바른지 확인하세요.
+- **AccessDenied**: 주로 [`signIn` 콜백](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks#sign-in-callback) 또는 [`redirect` 콜백](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks#redirect-callback)을 통해 접근을 제한했을 때 발생합니다.
 - **Verification**: 이메일 공급자와 관련된 오류입니다. 토큰이 만료되었거나 이미 사용되었습니다.
 - **Default**: 위의 모든 조건에 해당하지 않을 경우 적용되는 오류입니다.
 
@@ -50,25 +50,25 @@ pages: {
 - **Callback**: [OAuth 콜백 핸들러 라우트](https://github.com/nextauthjs/next-auth/blob/v4/packages/next-auth/src/core/routes/callback.ts)의 오류.
 - **OAuthAccountNotLinked**: 이메일이 이미 연결되어 있지만, 이 OAuth 계정과는 연결되지 않은 경우 발생.
 - **EmailSignin**: 인증 토큰을 포함한 이메일 발송 실패.
-- **CredentialsSignin**: [자격 증명 공급자](https://next-auth.js.org/providers/credentials)에서 `authorize` 콜백이 `null`을 반환했습니다. 어떤 자격 증명의 부분이 잘못되었는지에 대한 정보를 제공하는 것은 권장하지 않습니다.
-- **SessionRequired**: 이 페이지의 내용은 항상 로그인 상태여야 합니다. [useSession](https://next-auth.js.org/getting-started/client#require-session)에서 설정을 확인하세요.
+- **CredentialsSignin**: [자격 증명 공급자](https://nextauth-ko.wsbox.pw/docs/providers/credentials)에서 `authorize` 콜백이 `null`을 반환했습니다. 어떤 자격 증명의 부분이 잘못되었는지에 대한 정보를 제공하는 것은 권장하지 않습니다.
+- **SessionRequired**: 이 페이지의 내용은 항상 로그인 상태여야 합니다. [useSession](https://nextauth-ko.wsbox.pw/docs/getting-started/client#require-session)에서 설정을 확인하세요.
 - **Default**: 위의 모든 조건에 해당하지 않을 경우 적용되는 오류입니다.
 
 예시: `/auth/signin?error=Default`
 
 ## 테마
 
-기본적으로 내장 페이지는 시스템 테마를 따르며, [`prefer-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) 미디어 쿼리를 활용합니다. 이 설정을 오버라이드하여 항상 어두운 테마나 밝은 테마를 사용할 수 있으며, 이는 [`theme.colorScheme` 옵션](https://next-auth.js.org/configuration/options#theme)을 통해 가능합니다.
+기본적으로 내장 페이지는 시스템 테마를 따르며, [`prefer-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) 미디어 쿼리를 활용합니다. 이 설정을 오버라이드하여 항상 어두운 테마나 밝은 테마를 사용할 수 있으며, 이는 [`theme.colorScheme` 옵션](https://nextauth-ko.wsbox.pw/docs/configuration/options#theme)을 통해 가능합니다.
 
 또한, `theme.brandColor`를 정의하여 이러한 내장 페이지에 대한 커스텀 강조 색상을 정의할 수 있습니다. `theme.logo`에서 로고의 URL을 정의하여 이러한 페이지의 기본 카드 위에 렌더링될 수 있습니다.
 
 ### 로그인
 
-![커스터마이즈된 로그인 페이지](https://next-auth.js.org/assets/images/pages_signin-940a5db521096f0bace59b44ecfd78b1.png)
+![커스터마이즈된 로그인 페이지](https://nextauth-ko.wsbox.pw/docs/assets/images/pages_signin-940a5db521096f0bace59b44ecfd78b1.png)
 
 ### 로그아웃
 
-![커스터마이즈된 로그아웃 페이지](https://next-auth.js.org/assets/images/pages_signout-0d202813326a52aa99579ce9894b9064.png)
+![커스터마이즈된 로그아웃 페이지](https://nextauth-ko.wsbox.pw/docs/assets/images/pages_signout-0d202813326a52aa99579ce9894b9064.png)
 
 ## 예시
 

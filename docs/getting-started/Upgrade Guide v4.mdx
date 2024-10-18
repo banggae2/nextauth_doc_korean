@@ -35,7 +35,7 @@ NextAuth.js 버전 4에는 지난 주요 버전(3.x)에서 몇 가지 획기적�
   </TabItem>
 </Tabs>
 
-## `next-auth/jwt`[](https://next-auth.js.org/getting-started/upgrade-v4#next-authjwt "Direct link to heading")
+## `next-auth/jwt`[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#next-authjwt "Direct link to heading")
 
 더 이상 `next-auth/jwt`에 기본 내보내기가 없습니다. 이를 준수하려면 다음을 변경하세요:
 
@@ -44,7 +44,7 @@ NextAuth.js 버전 4에는 지난 주요 버전(3.x)에서 몇 가지 획기적�
 + import { getToken } from "next-auth/jwt"
 ```
 
-## `next-auth/react`[](https://next-auth.js.org/getting-started/upgrade-v4#next-authreact "Direct link to heading")
+## `next-auth/react`[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#next-authreact "Direct link to heading")
 
 클라이언트 측 가져오기 소스의 이름을 `next-auth/react`로 변경했습니다. 이 변경 사항을 준수하려면 `next-auth/client`를 사용하던 곳의 이름을 바꾸기만 하면 됩니다.
 
@@ -57,8 +57,8 @@ NextAuth.js 버전 4에는 지난 주요 버전(3.x)에서 몇 가지 획기적�
 
 내보내기 이름도 다음과 같이 변경했습니다:
 
-- `setOptions`: 더 이상 노출되지 않음, [`SessionProvider` props](https://next-auth.js.org/getting-started/client#options)를 사용하세요
-- `options`: 더 이상 노출되지 않음, [`SessionProvider` props를 사용하세요](https://next-auth.js.org/getting-started/client#options)
+- `setOptions`: 더 이상 노출되지 않음, [`SessionProvider` props](https://nextauth-ko.wsbox.pw/docs/getting-started/client#options)를 사용하세요
+- `options`: 더 이상 노출되지 않음, [`SessionProvider` props를 사용하세요](https://nextauth-ko.wsbox.pw/docs/getting-started/client#options)
 - `session`: `getSession`으로 이름이 변경되었습니다.
 - `providers`: `getProviders`로 이름이 변경되었습니다.
 - `csrfToken`: `getCsrfToken`으로 이름이 변경되었습니다.
@@ -68,7 +68,7 @@ NextAuth.js 버전 4에는 지난 주요 버전(3.x)에서 몇 가지 획기적�
 
 https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.12 에 도입되었습니다
 
-## `SessionProvider`[](https://next-auth.js.org/getting-started/upgrade-v4#sessionprovider "Direct link to heading")
+## `SessionProvider`[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#sessionprovider "Direct link to heading")
 
 버전 4에서는 `SessionProvider` 사용이 의무화되었습니다. 즉, 아직 사용하지 않았다면 이 공급자에서 `useSession`을 사용하여 애플리케이션의 모든 부분을 래핑해야 합니다. `SessionProvider`도 몇 가지 추가 변경이 있었습니다:
 -   `Provider`는 `SessionProvider`로 이름이 변경되었습니다.
@@ -98,7 +98,7 @@ export default function App({
 
 [https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.12](https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.12)에 도입되었습니다
 
-## 공급자[](https://next-auth.js.org/getting-started/upgrade-v4#providers "Direct link to heading")
+## 공급자[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#providers "Direct link to heading")
 
 이제 공급자는 개별적으로 가져와야 합니다.
 
@@ -123,7 +123,7 @@ export default function App({
 3.  `userinfo` (`profileUrl`를 대체함)
 4.  `issuer`(`domain`를 대체함)
 
-사용법에 대한 자세한 내용은 OAuth 공급자 문서의 [옵션](https://next-auth.js.org/configuration/providers/oauth#options) 섹션을 참조하세요.
+사용법에 대한 자세한 내용은 OAuth 공급자 문서의 [옵션](https://nextauth-ko.wsbox.pw/docs/configuration/providers/oauth#options) 섹션을 참조하세요.
 
 레포지토리에 새 OAuth 공급자를 제출할 때 이제부터 `profile` 콜백은 다음 필드만 반환할 것으로 예상됩니다: `id`, `name`, `email`, 그리고 `image`. 이 중 하나라도 누락된 값이 있으면 `null`로 설정해야 합니다.
 
@@ -131,7 +131,7 @@ export default function App({
 
 구현: [#2411](https://github.com/nextauthjs/next-auth/pull/2411) [https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.20](https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.20)에서 소개되었습니다
 
-## `useSession` 훅[](https://next-auth.js.org/getting-started/upgrade-v4#usesession-hook "Direct link to heading")
+## `useSession` 훅[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#usesession-hook "Direct link to heading")
 
 `useSession` 훅이 객체를 반환하도록 업데이트되었습니다. 이제 새로운 `status` 옵션을 사용하여 상태를 훨씬 더 깔끔하게 테스트할 수 있습니다.
 
@@ -141,15 +141,15 @@ export default function App({
 + const loading = status === "loading"
 ```
 
-`session.status`와 `session.data`에서 사용 가능한 값은 [문서를 확인하세요](https://next-auth.js.org/getting-started/client#usesession).
+`session.status`와 `session.data`에서 사용 가능한 값은 [문서를 확인하세요](https://nextauth-ko.wsbox.pw/docs/getting-started/client#usesession).
 
 [https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.18](https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.18)에서 소개되었습니다.
 
-## 정의된 매개변수[](https://next-auth.js.org/getting-started/upgrade-v4#named-parameters "Direct link to heading")
+## 정의된 매개변수[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#named-parameters "Direct link to heading")
 
 콜백에 대한 인수를 명명된 매개변수 패턴으로 변경했습니다. 이렇게 하면 더미 `_` 자리 표시자나 다른 트릭을 사용할 필요가 없습니다.
 
-### 콜백[](https://next-auth.js.org/getting-started/upgrade-v4#callbacks "Direct link to heading")
+### 콜백[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#callbacks "Direct link to heading")
 
 이제 콜백 메서드의 매개변수값은 다음과 같습니다:
 
@@ -175,7 +175,7 @@ export default function App({
 
 [https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.17](https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.17)에서 소개되었습니다.
 
-### 이벤트[](https://next-auth.js.org/getting-started/upgrade-v4#events "Direct link to heading")
+### 이벤트[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#events "Direct link to heading")
 
 `signOut`과 `updateUser` 두 개의 이벤트도 정의된 매개변수 패턴을 사용하도록 변경되었습니다.
 
@@ -192,9 +192,9 @@ events: {
 [https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.20](https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.20)에서 소개되었습니다.
 
 
-## JWT 구성[](https://next-auth.js.org/getting-started/upgrade-v4#jwt-configuration "Direct link to heading")
+## JWT 구성[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#jwt-configuration "Direct link to heading")
 
-우리는 JSON Web Tokens를 구성할때 일부 [구성옵션](https://next-auth.js.org/configuration/options)을 제거 하였으며, 자세한 내용은 [여기에서 확인해주세요](https://github.com/nextauthjs/next-auth/pull/3039).
+우리는 JSON Web Tokens를 구성할때 일부 [구성옵션](https://nextauth-ko.wsbox.pw/docs/configuration/options)을 제거 하였으며, 자세한 내용은 [여기에서 확인해주세요](https://github.com/nextauthjs/next-auth/pull/3039).
 
 ```diff
 export default NextAuth({
@@ -232,7 +232,7 @@ export default NextAuth({
 })
 ```
 
-## 로거 API[](https://next-auth.js.org/getting-started/upgrade-v4#logger-api "Direct link to heading")
+## 로거 API[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#logger-api "Direct link to heading")
 
 로거 API는 최대 두 개의 매개변수만 사용하도록 단순화되었으며, 두 번째 매개변수는 일반적으로 `error` 객체를 포함하는 객체(`metadata`)입니다. 로거 설정을 사용하지 않는 경우에는 이 변경 사항을 무시해도 됩니다.
 
@@ -251,13 +251,13 @@ logger: {
 
 [https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.19](https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.19)에서 소개되었습니다.
 
-## `nodemailer`[](https://next-auth.js.org/getting-started/upgrade-v4#nodemailer "Direct link to heading")
+## `nodemailer`[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#nodemailer "Direct link to heading")
 
-`typeorm` 및 `prisma`와 마찬가지로 [`nodemailer`](https://npmjs.com/package/nodemailer)는 이제 더 이상 기본적으로 종속적이지 않습니다. 만약 이메일 공급자를 사용하는 경우 프로젝트에 수동으로 추가하거나, 기타 다른 라이브러리안에 [`sendVerificationRequest`](https://next-auth.js.org/configuration/providers/email#options-1#:~:text=sendVerificationRequest)콜백을 사용하세요. 이렇게 하면 이메일 제공업체를 실제로 사용하지 않는 경우 번들 크기가 줄어듭니다. 이메일 공급자를 사용하는 경우 매직링크 기능이 작동하려면 인증 토큰이 장기간 유지되어야 하므로 데이터베이스 어댑터도 반드시 사용해야 한다는 점을 기억하세요.
+`typeorm` 및 `prisma`와 마찬가지로 [`nodemailer`](https://npmjs.com/package/nodemailer)는 이제 더 이상 기본적으로 종속적이지 않습니다. 만약 이메일 공급자를 사용하는 경우 프로젝트에 수동으로 추가하거나, 기타 다른 라이브러리안에 [`sendVerificationRequest`](https://nextauth-ko.wsbox.pw/docs/configuration/providers/email#options-1#:~:text=sendVerificationRequest)콜백을 사용하세요. 이렇게 하면 이메일 제공업체를 실제로 사용하지 않는 경우 번들 크기가 줄어듭니다. 이메일 공급자를 사용하는 경우 매직링크 기능이 작동하려면 인증 토큰이 장기간 유지되어야 하므로 데이터베이스 어댑터도 반드시 사용해야 한다는 점을 기억하세요.
 
 [https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.2](https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.2)에서 소개되었습니다.
 
-## 테마[](https://next-auth.js.org/getting-started/upgrade-v4#theme "Direct link to heading")
+## 테마[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#theme "Direct link to heading")
 
 `signin`, `signout` 등과 같은 기본 제공 페이지에 몇 가지 기본 사용자 지정 옵션을 추가했습니다.
 
@@ -273,17 +273,17 @@ theme: {
 
 최소한의 구성/사용자 정의 옵션을 통해 사용자가 기본 제공 페이지를 자신만의 페이지로 교체할 필요성을 바로 느끼지 않기를 바랍니다.
 
-새로운 테마 옵션에 대한 자세한 내용과 스크린샷은 [구성/페이지](https://next-auth.js.org/configuration/pages#theming)에서 확인할 수 있습니다.
+새로운 테마 옵션에 대한 자세한 내용과 스크린샷은 [구성/페이지](https://nextauth-ko.wsbox.pw/docs/configuration/pages#theming)에서 확인할 수 있습니다.
 
 [#2788](https://github.com/nextauthjs/next-auth/pull/2788)에서 소개되었습니다.
 
-## 세션[](https://next-auth.js.org/getting-started/upgrade-v4#session "Direct link to heading")
+## 세션[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#session "Direct link to heading")
 
 `session.jwt: boolean` 옵션이 `session.strategy: "jwt" | "database"`으로 변경되었습니다. 이는 사용자의 옵션을 보다 직관적으로 만들기 위한 것입니다:
 
 1.  어댑터 없음, `strategy: "jwt"`: 기본값입니다. 세션은 쿠키에 저장되며 어디에도 지속되지 않습니다.
 2.  어댑터 사용, `strategy: "database"`: 어댑터가 정의된 경우 이 설정이 암시적 설정이 됩니다. 사용자 구성이 필요하지 않습니다.
-3.  어댑터 사용, `strategy: "jwt"`: 사용자는 데이터베이스를 사용할 수 있는 경우에도 명시적으로 `next-auth`에 JWT를 사용하도록 지시할 수 있습니다. 이렇게 하면 보안이 저하되는 대신 조회 속도가 빨라질 수 있습니다. 자세히 알아보세요: [https://next-auth.js.org/faq#json-web-tokens](https://next-auth.js.org/faq#json-web-tokens)
+3.  어댑터 사용, `strategy: "jwt"`: 사용자는 데이터베이스를 사용할 수 있는 경우에도 명시적으로 `next-auth`에 JWT를 사용하도록 지시할 수 있습니다. 이렇게 하면 보안이 저하되는 대신 조회 속도가 빨라질 수 있습니다. 자세히 알아보세요: [https://nextauth-ko.wsbox.pw/docs/faq#json-web-tokens](https://nextauth-ko.wsbox.pw/docs/faq#json-web-tokens)
 
 
 예시:
@@ -297,11 +297,11 @@ session: {
 
 [#3144](https://github.com/nextauthjs/next-auth/pull/3144)에서 소개되었습니다.
 
-## 어댑터[](https://next-auth.js.org/getting-started/upgrade-v4#adapters "Direct link to heading")
+## 어댑터[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#adapters "Direct link to heading")
 
 가장 중요한 것은 `next-auth`코어 패키지가 더 이상 기본적으로 `typeorm` 또는 다른 데이터베이스 어댑터와 함께 제공되지 않는다는 점입니다. 따라서 사용자 데이터를 데이터베이스에 보존할 필요가 없는 경우 기본 번들 크기가 크게 줄어듭니다.
 
-공식 어댑터는 기본 모노레포의 `packages` 디렉토리에서 찾을 수 있습니다([nextauthjs/next-auth](https://github.com/nextauthjs/next-auth)). 새로운 [간소화된 어댑터 API](https://github.com/nextauthjs/next-auth/pull/2361)를 사용하여 [직접 생성](https://next-auth.js.org/tutorials/creating-a-database-adapter)할 수도 있습니다.
+공식 어댑터는 기본 모노레포의 `packages` 디렉토리에서 찾을 수 있습니다([nextauthjs/next-auth](https://github.com/nextauthjs/next-auth)). 새로운 [간소화된 어댑터 API](https://github.com/nextauthjs/next-auth/pull/2361)를 사용하여 [직접 생성](https://nextauth-ko.wsbox.pw/docs/tutorials/creating-a-database-adapter)할 수도 있습니다.
 
 만약 `3.x.x` 또는 이전 버전의 NextAuth.js로 만든 데이터베이스가 있는 경우 마이그레이션을 실행하여 스키마를 새 버전 4 데이터베이스 모델로 업데이트해야 합니다. 데이터베이스별 마이그레이션 예는 하단의 마이그레이션 가이드를 참조하세요.
 
@@ -327,7 +327,7 @@ export default NextAuth({
 
 이 변경 사항들은 [https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.8](https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.8) 및 [#2361](https://github.com/nextauthjs/next-auth/pull/2361)에서 소개되었습니다.
 
-### 어댑터 API[](https://next-auth.js.org/getting-started/upgrade-v4#adapter-api "Direct link to heading")
+### 어댑터 API[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#adapter-api "Direct link to heading")
 
 **사용자에게는 변경이 필요하지 않습니다. 이는 어댑터에만 해당하는 변경 사항입니다.**
 
@@ -335,7 +335,7 @@ NextAuth.js v4에서 어댑터 API가 다시 작성되고 크게 단순화되었
 
 어댑터 유지보수자이거나 직접 어댑터를 작성하려는 경우 [#2361](https://github.com/nextauthjs/next-auth/pull/2361) 및 [https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.22](https://github.com/nextauthjs/next-auth/releases/tag/v4.0.0-next.22)에서 이 변경 사항에 대한 추가 정보를 찾을 수 있습니다.
 
-### 스키마 변경[](https://next-auth.js.org/getting-started/upgrade-v4#schema-changes "Direct link to heading")
+### 스키마 변경[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#schema-changes "Direct link to heading")
 
 어댑터 API가 새롭게 변경되면서 데이터 저장 방식이 약간 변경되었습니다. 새로운 어댑터 API로, 추가 필드를 데이터베이스에 쉽게 확장할 수 있도록 하였습니다. 예를 들어, 사용자의 `phone` 필드가 필요할 경우, 데이터베이스 스키마에 해당 필드를 추가하는 것만으로 충분하며, 어댑터에서는 변경이 필요하지 않습니다.
 
@@ -412,12 +412,12 @@ VerificationToken {
 
 자세한 정보는 [데이터베이스 모델](https://authjs.dev/concepts/database-models)페이지에서 확인하세요.
 
-### 데이터베이스 마이그레이션[](https://next-auth.js.org/getting-started/upgrade-v4#database-migration "Direct link to heading")
+### 데이터베이스 마이그레이션[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#database-migration "Direct link to heading")
 
 NextAuth.js v4는 v3와 비교하여 약간 다른 데이터베이스 스키마를 가지고 있습니다. 만약 어댑터를 사용 중이고 업그레이드를 원한다면, 아래 스키마 중 하나를 사용할 수 있습니다.
 
 이 스키마들은 직접 데이터베이스에서 실행되도록 설계되었습니다. 즉, Prisma, TypeORM 등의 문법에 맞춘 하나의 스키마가 아니라, 각각의 데이터베이스 유형에 맞춘 스키마를 제공합니다. 예를 들어, Postgres용 하나, MySQL용 하나, MongoDB용 하나 등으로 나뉘어 있습니다.
-#### MySQL[](https://next-auth.js.org/getting-started/upgrade-v4#mysql "Direct link to heading")
+#### MySQL[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#mysql "Direct link to heading")
 
 ```sql
 /* ACCOUNT */
@@ -468,7 +468,7 @@ DROP COLUMN "created_at"
 DROP COLUMN "updated_at"
 ```
 
-#### Postgres[](https://next-auth.js.org/getting-started/upgrade-v4#postgres "Direct link to heading")
+#### Postgres[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#postgres "Direct link to heading")
 
 ```sql
 /* ACCOUNT */
@@ -552,7 +552,7 @@ DROP COLUMN IF EXISTS "created_at",
 DROP COLUMN IF EXISTS "updated_at";
 ```
 
-#### MongoDB[](https://next-auth.js.org/getting-started/upgrade-v4#mongodb "Direct link to heading")
+#### MongoDB[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#mongodb "Direct link to heading")
 
 MongoDB는 문서형 데이터베이스이므로 새로운 필드는 자동으로 채워집니다. 그러나 재사용될 기존 필드의 이름은 업데이트해야 합니다.
 
@@ -578,9 +578,9 @@ db.getCollection('sessions').updateMany({}, {
 })
 ```
 
-## `secret` 누락[](https://next-auth.js.org/getting-started/upgrade-v4#missing-secret "Direct link to heading")
+## `secret` 누락[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#missing-secret "Direct link to heading")
 
-NextAuth.js는 사용자가 정의하지 않은 경우 편의성을 위해 비밀(secret)을 생성하였습니다. 이는 개발 환경에서는 유용할 수 있지만, 운영 환경에서는 문제가 될 수 있습니다. 우리는 문서에서 이에 대해 항상 명확히 밝혀왔지만, 이제부터는 운영 환경에서 `secret` 속성을 정의하지 않으면 사용자에게 오류 페이지를 표시합니다. 이 옵션에 대한 자세한 내용은 [여기](https://next-auth.js.org/configuration/options#secret)에서 확인할 수 있습니다.
+NextAuth.js는 사용자가 정의하지 않은 경우 편의성을 위해 비밀(secret)을 생성하였습니다. 이는 개발 환경에서는 유용할 수 있지만, 운영 환경에서는 문제가 될 수 있습니다. 우리는 문서에서 이에 대해 항상 명확히 밝혀왔지만, 이제부터는 운영 환경에서 `secret` 속성을 정의하지 않으면 사용자에게 오류 페이지를 표시합니다. 이 옵션에 대한 자세한 내용은 [여기](https://nextauth-ko.wsbox.pw/docs/configuration/options#secret)에서 확인할 수 있습니다.
 
 다음 명령어를 통해 `secret` 구성 옵션에 넣을 비밀을 생성할 수 있습니다:
 ```bash
@@ -601,16 +601,16 @@ export default NextAuth({
 
 [#3143](https://github.com/nextauthjs/next-auth/issues/3143)에서 소개되었습니다.
 
-## 세션 `strategy`[](https://next-auth.js.org/getting-started/upgrade-v4#session-strategy "Direct link to heading")
+## 세션 `strategy`[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#session-strategy "Direct link to heading")
 
-우리는 항상 두 가지 다른 세션 전략을 지원해왔습니다. 첫 번째는 가장 인기 있고 기본 전략인 JWT 기반 전략입니다. 두 번째는 데이터베이스 어댑터 지속 세션 전략입니다. 두 전략 모두 장단점이 있으며, 더 많은 내용을 알고 싶으시면 [FAQ](https://next-auth.js.org/faq) 페이지를 확인하시기 바랍니다.
+우리는 항상 두 가지 다른 세션 전략을 지원해왔습니다. 첫 번째는 가장 인기 있고 기본 전략인 JWT 기반 전략입니다. 두 번째는 데이터베이스 어댑터 지속 세션 전략입니다. 두 전략 모두 장단점이 있으며, 더 많은 내용을 알고 싶으시면 [FAQ](https://nextauth-ko.wsbox.pw/docs/faq) 페이지를 확인하시기 바랍니다.
 
 이전에는 `session` 옵션의 `jwt: boolean` 플래그를 통해 이 설정을 구성했습니다. `session`과 `jwt`라는 이름은 옵션에서 다소 과용되었을 수 있으므로, 더 명확한 메시지를 위해 이 옵션의 이름을 `strategy: "jwt" | "database"`로 변경했습니다. 여전히 `session` 객체에 포함되어 있습니다. 이는 이 옵션의 목적을 더 잘 나타내고 어떤 유형의 세션을 사용할 것인지 명확히 하기를 희망합니다.
 
-자세한 내용은 [`session` 옵션 문서](https://next-auth.js.org/configuration/options#session)를 참조하십시오.
+자세한 내용은 [`session` 옵션 문서](https://nextauth-ko.wsbox.pw/docs/configuration/options#session)를 참조하십시오.
 
 이 변경 사항은 [#3144](https://github.com/nextauthjs/next-auth/pull/3144)에서 소개되었습니다.
 
-## 요약[](https://next-auth.js.org/getting-started/upgrade-v4#summary "Direct link to heading")
+## 요약[](https://nextauth-ko.wsbox.pw/docs/getting-started/upgrade-v4#summary "Direct link to heading")
 
 우리는 이 마이그레이션이 여러분 모두에게 순조롭게 진행되기를 바랍니다! 질문이 있거나 어디에서 막히면, 언제든지 GitHub에 [새 이슈](https://github.com/nextauthjs/next-auth/issues/new)를 작성해 주세요.
