@@ -9,11 +9,11 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'NextAuth.js 한국어 문서',
-  tagline: 'NextAuth.js 비공식 한국어 문서입니다',
+  tagline: 'NextAuth.js 문서를 한국어로 번역한 사이트입니다',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://*.pages.dev',
+  url: 'https://nextauth-doc-korean-banggae.pages.dev',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -107,7 +107,7 @@ const config = {
             ],
           },
         ],
-        copyright: '본 사이트는 NextAuth.js 라이브러리의 공식 문서를 한국어로 번역한 비공식 사이트입니다.<br/>모든 저작권은 NextAuth.js에 있습니다'
+        copyright: '본 사이트는 NextAuth.js 라이브러리의 공식 문서를 한국어로 번역한 비공식 사이트입니다.'
         // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       prism: {

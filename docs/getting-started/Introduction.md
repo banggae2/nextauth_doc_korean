@@ -14,9 +14,9 @@ NextAuth.js는 [Next.js](http://nextjs.org/) 애플리케이션을 위한 완전
 
 ### 유연하고 사용하기 쉬움
 
--   [OAuth 서비스와 연동 가능](https://next-auth.js.org/providers)하며 OAuth 1.0, 1.0A, 2.0 및 OpenID Connect를 지원합니다.
--   [다양한 인기 로그인 서비스](https://next-auth.js.org/configuration/providers/oauth)를 기본으로 지원합니다.
--   [이메일/비밀번호 없이 인증](https://next-auth.js.org/providers/email)을 지원합니다.
+-   [OAuth 서비스와 연동 가능](/providers)하며 OAuth 1.0, 1.0A, 2.0 및 OpenID Connect를 지원합니다.
+-   [다양한 인기 로그인 서비스](/configuration/providers/oauth)를 기본으로 지원합니다.
+-   [이메일/비밀번호 없이 인증](/providers/email)을 지원합니다.
 -   [어느 백엔드](https://authjs.dev/getting-started/database)가 되었든 Stateless 인증을 지원합니다. (예: Active Directory, LDAP 등)
 -   JSON Web Tokens(JWT)와 데이터베이스 세션을 모두 지원합니다.
 -   서버리스 환경을 위해 설계되었지만 AWS Lambda, Docker, Heroku 등 어디서든 실행됩니다.
@@ -27,7 +27,7 @@ NextAuth.js는 데이터베이스와 함께 또는 데이터베이스 없이 사
 
 -   데이터를 제어할 수 있는 오픈 소스 솔루션입니다.
 -   사용자가 원하는 데이터베이스를 사용할 수 있는 BYOD(Bring Your Own Database)를 지원합니다.
--   [MySQL, MariaDB, Postgres, SQL Server, MongoDB, SQLite](https://next-auth.js.org/configuration/databases)를 기본 지원합니다.
+-   [MySQL, MariaDB, Postgres, SQL Server, MongoDB, SQLite](/configuration/databases)를 기본 지원합니다.
 -   인기 있는 호스팅 제공업체의 데이터베이스와도 잘 작동합니다.
 -   _데이터베이스 없이도_ 사용할 수 있습니다 (예: OAuth + JWT).
 
@@ -54,4 +54,4 @@ NextAuth.js 개발을 금전적으로 지원하고 싶다면 [OpenCollective](ht
 
 ## 시작하기
 
-[예시 코드를 확인하세요](https://next-auth.js.org/getting-started/example) NextAuth.js를 사용해 인증을 얼마나 쉽게 구현할 수 있는지 볼 수 있습니다.
+[예시 코드를 확인하세요](/getting-started/example) NextAuth.js를 사용해 인증을 얼마나 쉽게 구현할 수 있는지 볼 수 있습니다.
