@@ -64,11 +64,11 @@ pages: {
 
 ### 로그인
 
-![커스터마이즈된 로그인 페이지](https://nextauth-ko.wsbox.pw/docs/assets/images/pages_signin-940a5db521096f0bace59b44ecfd78b1.png)
+![](https://nextauth-ko.wsbox.pw/img/pages_signin-940a5db521096f0bace59b44ecfd78b1.png)
 
 ### 로그아웃
 
-![커스터마이즈된 로그아웃 페이지](https://nextauth-ko.wsbox.pw/docs/assets/images/pages_signout-0d202813326a52aa99579ce9894b9064.png)
+![](https://nextauth-ko.wsbox.pw/img/pages_signout-0d202813326a52aa99579ce9894b9064.png)
 
 ## 예시
 
