@@ -116,4 +116,4 @@ providers: [
 ]
 ```
 
-![](https://nextauth-ko.wsbox.pw/images/signin-complex-ee85e2ba139b73903bbb9723aa846865.png)
+![](https://nextauth-ko.wsbox.pw/img/signin-complex-ee85e2ba139b73903bbb9723aa846865.png)
