@@ -25,27 +25,27 @@ OAuth 흐름은 일반적으로 6단계로 구성됩니다:
 6. 액세스 토큰이 유효하면 리소스 서버(API)가 애플리케이션에 리소스를 제공합니다.
 ```mermaid
 sequenceDiagram;
-    Note left of Browser: User clicks on "Sign in"
+    Note left of Browser: 유저가 "Sign in"을 클릭
     Browser ->> App Server: GET<br/>"api/auth/signin"
-    App Server ->> App Server: Computes the available<br/>sign in providers<br/>from the "providers" option
-    App Server ->> Browser: Redirects to Sign in page
-    Note left of Browser: Sign in options<br/>are shown the user<br/>(Github, Twitter, etc...)
-    Note left of Browser: User clicks on<br/>"Sign in with Github"
+    App Server ->> App Server: "Providers" 옵션중 사용 가능한<br/>로그인 Providers를 계산합니다.
+    App Server ->> Browser: 로그인 페이지로 리다이렉트
+    Note left of Browser: 유저에게 로그인<br/>옵션을 표시합니다<br/>(Github, Twitter, etc...)
+    Note left of Browser: 유저가<br/>"Sign in with Github"<br/>을 클릭
     Browser ->> App Server: POST<br/>"api/auth/signin/github"
-    App Server ->> App Server: Computes sign in<br/>options for Github<br/>(scopes, callback URL, etc...)
+    App Server ->> App Server: Github에 대한 로그인 옵션을 계산합니다<br/>(scopes, callback URL, etc...)
     App Server ->> Auth Server (Github): GET<br/>"github.com/login/oauth/authorize"
-    Note left of Auth Server (Github): Sign in options<br/>are supplied as<br/>query params<br/>(clientId,<br/>scope, etc...)
-    Auth Server (Github) ->> Browser: Shows sign in page<br/>in Github.com<br/>to the user
-    Note left of Browser: User inserts their<br/>credentials in Github
-    Browser ->> Auth Server (Github): Github validates the inserted credentials
-    Auth Server (Github) ->> Auth Server (Github): Generates one time access code<br/>and calls callback<br/>URL defined in<br/>App settings
+    Note left of Auth Server (Github): 로그인 옵션은<br/>쿼리 매개변수로 제공됩니다.<br/>(clientId, scope, etc...)
+    Auth Server (Github) ->> Browser: 유저에게 Github.com의<br/>로그인 페이지를 표시합니다
+    Note left of Browser: 유저가 Github에 자신의<br/>자격 증명을 입력합니다.
+    Browser ->> Auth Server (Github): Github은 입력된 자격 증명을 검증합니다
+    Auth Server (Github) ->> Auth Server (Github): 일회성 액세스 코드를 생성하고<br/>앱 설정에 정의된 콜백<br/>URL을 호출합니다.
     Auth Server (Github) ->> App Server: GET<br/>"api/auth/callback/github?code=123"
-    App Server ->> App Server: Grabs code<br/>to exchange it for<br/>access token
+    App Server ->> App Server: 코드를 가져와서<br/>액세스 토큰으로 교환합니다
     App Server ->> Auth Server (Github): POST<br/>"github.com/login/oauth/access_token"<br/>{code: 123}
-    Auth Server (Github) ->> Auth Server (Github): Verifies code is<br/>valid and generates<br/>access token
+    Auth Server (Github) ->> Auth Server (Github): 코드가 유효한지 확인하고 <br/>액세스 토큰을 생성합니다.
     Auth Server (Github) ->> App Server: { access_token: 16C7x... }
-    App Server ->> App Server: Generates session token<br/>and stores session
-    App Server ->> Browser: You're now logged in!
+    App Server ->> App Server: 세션 토큰을 생성하고<br/>세션을 저장합니다
+    App Server ->> Browser: 로그인 되었습니다!
 ```
 자세한 내용은 Aaron Parecki의 블로그 게시물 [OAuth2 Simplified](https://aaronparecki.com/oauth-2-simplified/) 또는 Postman의 블로그 게시물 [OAuth 2.0: Implicit Flow is Dead, Try PKCE Instead](https://blog.postman.com/pkce-oauth-how-to/)를 확인하세요.
 
