@@ -77,6 +77,12 @@ const config = {
             position: 'left',
             label: '문서',
           },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'faq',
+            label: 'FAQ',
+          },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://next-auth.js.org/',
