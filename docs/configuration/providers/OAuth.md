@@ -23,9 +23,30 @@ OAuth 흐름은 일반적으로 6단계로 구성됩니다:
 4. 애플리케이션의 신원이 인증되고 승인 부여가 유효하면 인증 서버(API)는 애플리케이션에 액세스 토큰을 발급합니다. 이제 인증이 완료되었습니다.
 5. 애플리케이션은 리소스 서버(API)에서 리소스를 요청하고 액세스 토큰을 인증으로 제시합니다.
 6. 액세스 토큰이 유효하면 리소스 서버(API)가 애플리케이션에 리소스를 제공합니다.
----
-##### 추가예정
----
+```mermaid
+sequenceDiagram;
+    Note left of Browser: User clicks on "Sign in"
+    Browser ->> App Server: GET<br/>"api/auth/signin"
+    App Server ->> App Server: Computes the available<br/>sign in providers<br/>from the "providers" option
+    App Server ->> Browser: Redirects to Sign in page
+    Note left of Browser: Sign in options<br/>are shown the user<br/>(Github, Twitter, etc...)
+    Note left of Browser: User clicks on<br/>"Sign in with Github"
+    Browser ->> App Server: POST<br/>"api/auth/signin/github"
+    App Server ->> App Server: Computes sign in<br/>options for Github<br/>(scopes, callback URL, etc...)
+    App Server ->> Auth Server (Github): GET<br/>"github.com/login/oauth/authorize"
+    Note left of Auth Server (Github): Sign in options<br/>are supplied as<br/>query params<br/>(clientId,<br/>scope, etc...)
+    Auth Server (Github) ->> Browser: Shows sign in page<br/>in Github.com<br/>to the user
+    Note left of Browser: User inserts their<br/>credentials in Github
+    Browser ->> Auth Server (Github): Github validates the inserted credentials
+    Auth Server (Github) ->> Auth Server (Github): Generates one time access code<br/>and calls callback<br/>URL defined in<br/>App settings
+    Auth Server (Github) ->> App Server: GET<br/>"api/auth/callback/github?code=123"
+    App Server ->> App Server: Grabs code<br/>to exchange it for<br/>access token
+    App Server ->> Auth Server (Github): POST<br/>"github.com/login/oauth/access_token"<br/>{code: 123}
+    Auth Server (Github) ->> Auth Server (Github): Verifies code is<br/>valid and generates<br/>access token
+    Auth Server (Github) ->> App Server: { access_token: 16C7x... }
+    App Server ->> App Server: Generates session token<br/>and stores session
+    App Server ->> Browser: You're now logged in!
+```
 자세한 내용은 Aaron Parecki의 블로그 게시물 [OAuth2 Simplified](https://aaronparecki.com/oauth-2-simplified/) 또는 Postman의 블로그 게시물 [OAuth 2.0: Implicit Flow is Dead, Try PKCE Instead](https://blog.postman.com/pkce-oauth-how-to/)를 확인하세요.
 
 ## 설정 방법
