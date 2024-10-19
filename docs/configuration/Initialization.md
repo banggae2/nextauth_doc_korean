@@ -3,7 +3,7 @@ id: initialization
 ---
 # 초기화
 
-NextAuth.js의 주요 진입점은 `next-auth`에서 가져오는 `NextAuth` 메서드입니다. 이는 [REST API](https://nextauth-ko.wsbox.pw/docs/getting-started/rest-api) 섹션에 정의된 다양한 유형의 요청을 처리합니다.
+NextAuth.js의 주요 진입점은 `next-auth`에서 가져오는 `NextAuth` 메서드입니다. 이는 [REST API](https://nextauth-ko.wsbox.pw/getting-started/rest-api) 섹션에 정의된 다양한 유형의 요청을 처리합니다.
 
 **정보**
 
@@ -11,9 +11,9 @@ NextAuth.js는 초기화를 위해 [Edge Runtime](https://nextjs.org/docs/api-re
 
 NextAuth.js를 초기화하는 몇 가지 방법이 있습니다.
 
-## 간단한 초기화[](https://nextauth-ko.wsbox.pw/docs/configuration/initialization#simple-initialization "헤딩으로 직접 링크")
+## 간단한 초기화[](https://nextauth-ko.wsbox.pw/configuration/initialization#simple-initialization "헤딩으로 직접 링크")
 
-### API 라우트 (`pages`)[](https://nextauth-ko.wsbox.pw/docs/configuration/initialization#api-routes-pages "헤딩으로 직접 링크")
+### API 라우트 (`pages`)[](https://nextauth-ko.wsbox.pw/configuration/initialization#api-routes-pages "헤딩으로 직접 링크")
 
 Next.js에서는 특정 경로로 시작하는 모든 요청을 포착할 API 라우트를 정의할 수 있습니다. 편리하게도, 이는 [모든 API 라우트 포착](https://nextjs.org/docs/api-routes/dynamic-api-routes#catch-all-api-routes)라고 합니다.
 
@@ -26,11 +26,11 @@ import NextAuth from "next-auth"
 export default NextAuth({  ...})
 ```
 
-여기서는 단지 [옵션](https://nextauth-ko.wsbox.pw/docs/configuration/options)을 `NextAuth`에 전달하면 되고, 나머지는 `NextAuth`가 처리합니다.
+여기서는 단지 [옵션](https://nextauth-ko.wsbox.pw/configuration/options)을 `NextAuth`에 전달하면 되고, 나머지는 `NextAuth`가 처리합니다.
 
 이 방식은 코드가 간단해지고 인증 흐름에서 발생할 수 있는 잠재적인 오류를 줄이기 때문에 튜토리얼 및 문서의 다른 부분에서 선호되는 초기화 방법입니다.
 
-### 라우트 핸들러 (`app/`)[](https://nextauth-ko.wsbox.pw/docs/configuration/initialization#route-handlers-app "헤딩으로 직접 링크")
+### 라우트 핸들러 (`app/`)[](https://nextauth-ko.wsbox.pw/configuration/initialization#route-handlers-app "헤딩으로 직접 링크")
 
 [Next.js 13.2](https://nextjs.org/blog/next-13-2#custom-route-handlers)에서는 App Router (`app/`)에서 REST 유사 요청을 처리하는 선호되는 방법인 [라우트 핸들러](https://beta.nextjs.org/docs/routing/route-handlers)를 도입했습니다.
 
@@ -50,10 +50,10 @@ export { handler as GET, handler as POST }
 기술적으로, 라우트 핸들러에서는 `api/` 접두사가 필요하지 않지만, 더 쉬운 마이그레이션을 위해 필수로 유지하기로 결정했습니다.
 :::
 
-## 고급 초기화[](https://nextauth-ko.wsbox.pw/docs/configuration/initialization#advanced-initialization "헤딩으로 직접 링크")
+## 고급 초기화[](https://nextauth-ko.wsbox.pw/configuration/initialization#advanced-initialization "헤딩으로 직접 링크")
 
 :::info[정보]
-다음은 API 라우트로 고급 초기화를 설명하지만, [라우트 핸들러](https://beta.nextjs.org/docs/routing/route-handlers)를 사용할 때도 유사하게 적용됩니다. 대신, `NextAuth`는 라우트 핸들러의 처음 두 인수를 받고, 세 번째 인수는 [인증 옵션](https://nextauth-ko.wsbox.pw/docs/configuration/options)이 됩니다.
+다음은 API 라우트로 고급 초기화를 설명하지만, [라우트 핸들러](https://beta.nextjs.org/docs/routing/route-handlers)를 사용할 때도 유사하게 적용됩니다. 대신, `NextAuth`는 라우트 핸들러의 처음 두 인수를 받고, 세 번째 인수는 [인증 옵션](https://nextauth-ko.wsbox.pw/configuration/options)이 됩니다.
 :::
 특정 사용 사례가 있어 NextAuth.js가 설계된 방식과 약간 다르게 동작해야 하는 경우, `[...nextauth].ts` 구성 파일은 단지 **일반적인** [**API 라우트**](https://nextjs.org/docs/api-routes/introduction)일 뿐임을 기억하세요.
 
@@ -70,7 +70,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
 }
 ```
 
-`...` 섹션은 여전히 [옵션](https://nextauth-ko.wsbox.pw/docs/configuration/options)일 것이지만, 이제 요청에서 특정 작업을 실행하거나 수정할 수 있는 가능성이 생겼습니다.
+`...` 섹션은 여전히 [옵션](https://nextauth-ko.wsbox.pw/configuration/options)일 것이지만, 이제 요청에서 특정 작업을 실행하거나 수정할 수 있는 가능성이 생겼습니다.
 
 예를 들어, 요청을 로깅하거나 헤더를 추가하거나 `query` 또는 `body` 매개변수를 읽을 수 있습니다. API 라우트에서 하던 모든 작업을 수행할 수 있습니다.
 
@@ -133,10 +133,10 @@ export default async function auth(req, res) {
 }
 ```
 
-사용 가능한 모든 액션과 지원되는 메서드에 대한 자세한 내용은 [REST API 문서](https://nextauth-ko.wsbox.pw/docs/getting-started/rest-api) 또는 [소스 코드의 해당 영역](https://github.com/nextauthjs/next-auth/blob/v4/packages/next-auth/src/core/index.ts)을 확인하세요.
+사용 가능한 모든 액션과 지원되는 메서드에 대한 자세한 내용은 [REST API 문서](https://nextauth-ko.wsbox.pw/getting-started/rest-api) 또는 [소스 코드의 해당 영역](https://github.com/nextauthjs/next-auth/blob/v4/packages/next-auth/src/core/index.ts)을 확인하세요.
 
 이러한 방식으로 `NextAuth`를 초기화하는 것은 매우 강력하지만, 신중하게 사용해야 합니다.
 
 :::danger[경고]
-`NextAuth`가 제대로 작동하는 데 필수적인 요청의 일부를 변경(예: [기본 쿠키](https://nextauth-ko.wsbox.pw/docs/configuration/options#cookies)를 수정)하면 예기치 않은 결과가 발생할 수 있으며, 잘못 수행될 경우 보안 취약점을 도입할 가능성이 있습니다. 그 결과를 이해한 경우에만 이를 변경하세요.
+`NextAuth`가 제대로 작동하는 데 필수적인 요청의 일부를 변경(예: [기본 쿠키](https://nextauth-ko.wsbox.pw/configuration/options#cookies)를 수정)하면 예기치 않은 결과가 발생할 수 있으며, 잘못 수행될 경우 보안 취약점을 도입할 가능성이 있습니다. 그 결과를 이해한 경우에만 이를 변경하세요.
 :::

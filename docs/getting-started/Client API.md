@@ -4,7 +4,7 @@ id: client
 # 클라이언트 API
 NextAuth.js 클라이언트 라이브러리는 React 애플리케이션에서 세션과 상호 작용을 쉽게 할 수 있게 해줍니다.
 
-#### 예제 세션 객체[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#example-session-object "직접 링크")
+#### 예제 세션 객체[](https://nextauth-ko.wsbox.pw/getting-started/client#example-session-object "직접 링크")
 
 ```ts
 {  
@@ -21,23 +21,23 @@ NextAuth.js 클라이언트 라이브러리는 React 애플리케이션에서 �
 
 클라이언트에 반환되는 세션 데이터에는 세션 토큰이나 OAuth 토큰과 같은 민감한 정보가 포함되어 있지 않습니다. 이는 사용자가 로그인한 상태에서 페이지에 사용자 정보를 표시하는 데 필요한 최소한의 페이로드(예: 이름, 이메일, 이미지)를 포함하고 있습니다.
 
-세션 객체에 추가 데이터를 반환해야 하는 경우 [세션 콜백](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks#session-callback)을 사용하여 클라이언트에 반환되는 세션 객체를 사용자 정의할 수 있습니다.
+세션 객체에 추가 데이터를 반환해야 하는 경우 [세션 콜백](https://nextauth-ko.wsbox.pw/configuration/callbacks#session-callback)을 사용하여 클라이언트에 반환되는 세션 객체를 사용자 정의할 수 있습니다.
 :::
 :::note[참고]
-`expires` 값은 순환되므로 세션이 [REST API](https://nextauth-ko.wsbox.pw/docs/getting-started/rest-api)에서 검색될 때마다 만료를 방지하기 위해 이 값도 업데이트됩니다.
+`expires` 값은 순환되므로 세션이 [REST API](https://nextauth-ko.wsbox.pw/getting-started/rest-api)에서 검색될 때마다 만료를 방지하기 위해 이 값도 업데이트됩니다.
 :::
 ___
 
-## useSession()[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#usesession "직접 링크")
+## useSession()[](https://nextauth-ko.wsbox.pw/getting-started/client#usesession "직접 링크")
 
 -   클라이언트 측: **예**
 -   서버 측: 아니요
 
 NextAuth.js 클라이언트의 `useSession()` React 훅은 누군가가 로그인했는지 확인하는 가장 쉬운 방법입니다.
 
-[`<SessionProvider>`](https://nextauth-ko.wsbox.pw/docs/getting-started/client#sessionprovider)가 `pages/_app.js`에 추가되어 있는지 확인하세요.
+[`<SessionProvider>`](https://nextauth-ko.wsbox.pw/getting-started/client#sessionprovider)가 `pages/_app.js`에 추가되어 있는지 확인하세요.
 
-#### 예제[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#예제 "직접 링크")
+#### 예제[](https://nextauth-ko.wsbox.pw/getting-started/client#예제 "직접 링크")
 
 ```jsx
 import { useSession } from "next-auth/react"
@@ -61,13 +61,13 @@ export default function Component() {
     -   성공한 경우, `data`는 [`Session`](https://github.com/nextauthjs/next-auth/blob/8ff4b260143458c5d8a16b80b11d1b93baa0690f/types/index.d.ts#L437-L444)입니다.
 -   **`status`**: 세 가지 가능한 세션 상태에 매핑되는 열거형: `"loading" | "authenticated" | "unauthenticated"`
 
-### 세션 요구[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#require-session)
+### 세션 요구[](https://nextauth-ko.wsbox.pw/getting-started/client#require-session)
 
 Next.js가 `getServerSideProps` 및 `getInitialProps를` 처리하는 방식 때문에 보호된 페이지를 로드할 때마다 세션이 유효한지 확인한 다음 요청된 페이지(SSR)를 생성하기 위해 서버 측 요청을 수행해야 합니다. 이로 인해 서버 부하가 증가하며 클라이언트에서 요청을 수행하는 데 능숙한 경우 대안이 있습니다. 항상 유효한 세션이 있는지 확인하는 방식으로 `useSession`을 사용할 수 있습니다. 초기 로딩 상태 이후에 세션을 찾을 수 없는 경우 적절한 조치를 정의하여 응답할 수 있습니다.
 
 기본 동작은 사용자를 로그인 페이지로 리디렉션하는 것이며, 로그인에 성공하면 사용자가 처음 시작한 페이지로 다시 전송됩니다. 다른 작업을 수행하려는 경우 `onUnauthenticated()` 콜백을 정의할 수도 있습니다:
 
-#### 예제[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#example-1)
+#### 예제[](https://nextauth-ko.wsbox.pw/getting-started/client#example-1)
 ```jsx title="pages/protected.jsx"
 import { useSession } from "next-auth/react"
 
@@ -87,7 +87,7 @@ export default function Admin() {
 }
 ```
 
-### 커스텀 클라이언트 세션 처리[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#custom-client-session-handling)
+### 커스텀 클라이언트 세션 처리[](https://nextauth-ko.wsbox.pw/getting-started/client#custom-client-session-handling)
 
 Next.js가 `getServerSideProps` / `getInitialProps`를 처리하는 방식 때문에, 모든 보호된 페이지 로드는 세션이 유효한지 확인하기 위해 서버 측 요청을 해야 하고, 그 다음에 요청된 페이지를 생성해야 합니다. 이 대안 솔루션은 초기 검사 시 로딩 상태를 표시하고, 이후 모든 페이지 전환은 클라이언트 측에서 이루어져 서버와 다시 확인하거나 페이지를 재생성할 필요가 없도록 합니다.
 
@@ -152,7 +152,7 @@ AdminDashboard.auth = {
 
 자세한 정보는 다음 [GitHub 이슈](https://github.com/nextauthjs/next-auth/issues/1210)를 참조하세요.
 
-### 세션 업데이트[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#updating-the-session "직접 링크")
+### 세션 업데이트[](https://nextauth-ko.wsbox.pw/getting-started/client#updating-the-session "직접 링크")
 
 `useSession()` 훅은 페이지를 다시 로드하지 않고도 세션을 업데이트할 수 있는 `update(data?: any): Promise<Session | null>` 메소드를 제공합니다.
 
@@ -163,7 +163,7 @@ AdminDashboard.auth = {
 :::caution[주의]
 데이터 객체는 클라이언트에서 오기 때문에 저장하기 전에 서버에서 검증해야 합니다.
 :::
-#### 예제[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#example-2 "직접 링크")
+#### 예제[](https://nextauth-ko.wsbox.pw/getting-started/client#example-2 "직접 링크")
 
 
 
@@ -240,9 +240,9 @@ export default NextAuth({
 })
 ```
 
-### 세션 재조회[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#refetching-the-session "직접 링크")
+### 세션 재조회[](https://nextauth-ko.wsbox.pw/getting-started/client#refetching-the-session "직접 링크")
 
-[`SessionProvider#refetchInterval`](https://nextauth-ko.wsbox.pw/docs/getting-started/client#refetch-interval)과 [`SessionProvider#refetchOnWindowFocus`](https://nextauth-ko.wsbox.pw/docs/getting-started/client#refetch-on-window-focus)는 `update()` 메소드로 대체할 수 있습니다.
+[`SessionProvider#refetchInterval`](https://nextauth-ko.wsbox.pw/getting-started/client#refetch-interval)과 [`SessionProvider#refetchOnWindowFocus`](https://nextauth-ko.wsbox.pw/getting-started/client#refetch-on-window-focus)는 `update()` 메소드로 대체할 수 있습니다.
 
 :::note[참고]
 `update()` 메소드는 `refetchInterval` 및 `refetchOnWindowFocus` 옵션과 달리 탭 간 동기화를 하지 않습니다.
@@ -281,10 +281,10 @@ export default function Page() {
 
 ___
 
-## getSession()[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#getsession "직접 링크")
+## getSession()[](https://nextauth-ko.wsbox.pw/getting-started/client#getsession "직접 링크")
 
 -   클라이언트 측: **예**
--   서버 측: **아니요** (참조: [`getServerSession()`](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#getserversession))
+-   서버 측: **아니요** (참조: [`getServerSession()`](https://nextauth-ko.wsbox.pw/configuration/nextjs#getserversession))
 
 NextAuth.js는 현재 활성 세션을 반환하기 위해 **클라이언트 측에서만** 호출해야 하는 `getSession()` 헬퍼를 제공합니다.
 
@@ -301,11 +301,11 @@ async function myFunction() {
 }
 ```
 
-서버 측 호출에서 `getServerSession()`을 사용하여 세션을 가져오는 방법을 배우려면 [페이지 및 API 경로 보호하기](https://nextauth-ko.wsbox.pw/docs/tutorials/securing-pages-and-api-routes) 튜토리얼을 읽어보세요.
+서버 측 호출에서 `getServerSession()`을 사용하여 세션을 가져오는 방법을 배우려면 [페이지 및 API 경로 보호하기](https://nextauth-ko.wsbox.pw/tutorials/securing-pages-and-api-routes) 튜토리얼을 읽어보세요.
 
 ___
 
-## getCsrfToken()[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#getcsrftoken "직접 링크")
+## getCsrfToken()[](https://nextauth-ko.wsbox.pw/getting-started/client#getcsrftoken "직접 링크")
 
 -   클라이언트 측: **예**
 -   서버 측: **예**
@@ -314,7 +314,7 @@ ___
 
 내장된 `signIn()` 및 `signOut()` 메소드를 사용하지 않는 경우에만 이를 사용할 필요가 있습니다.
 
-#### 클라이언트 측 예제[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#client-side-example "직접 링크")
+#### 클라이언트 측 예제[](https://nextauth-ko.wsbox.pw/getting-started/client#client-side-example "직접 링크")
 
 ```js
 async function myFunction() {  
@@ -323,7 +323,7 @@ async function myFunction() {
 }
 ```
 
-#### 서버 측 예제[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#server-side-example "직접 링크")
+#### 서버 측 예제[](https://nextauth-ko.wsbox.pw/getting-started/client#server-side-example "직접 링크")
 
 ```js
 import { getCsrfToken } from "next-auth/react"
@@ -337,7 +337,7 @@ export default async (req, res) => {
 
 ___
 
-## getProviders()[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#getproviders "직접 링크")
+## getProviders()[](https://nextauth-ko.wsbox.pw/getting-started/client#getproviders "직접 링크")
 
 -   클라이언트 측: **예**
 -   서버 측: **예**
@@ -350,7 +350,7 @@ ___
 
 ___
 
-#### API 경로[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#api-route "직접 링크")
+#### API 경로[](https://nextauth-ko.wsbox.pw/getting-started/client#api-route "직접 링크")
 
 
 
@@ -369,7 +369,7 @@ export default async (req, res) => {
 :::
 ___
 
-## signIn()[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#signin "직접 링크")
+## signIn()[](https://nextauth-ko.wsbox.pw/getting-started/client#signin "직접 링크")
 
 -   클라이언트 측: **예**
 -   서버 측: 아니요
@@ -378,7 +378,7 @@ ___
 
 `signIn()` 메소드는 클라이언트에서 다양한 방식으로 호출할 수 있습니다.
 
-### 클릭 시 로그인 페이지로 리디렉션[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#redirects-to-sign-in-page-when-clicked "직접 링크")
+### 클릭 시 로그인 페이지로 리디렉션[](https://nextauth-ko.wsbox.pw/getting-started/client#redirects-to-sign-in-page-when-clicked "직접 링크")
 
 ```jsx
 import { signIn } from "next-auth/react"
@@ -386,7 +386,7 @@ import { signIn } from "next-auth/react"
 export default () => <button onClick={() => signIn()}>로그인</button>
 ```
 
-### 클릭 시 OAuth 로그인 흐름 시작[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#starts-oauth-sign-in-flow-when-clicked "직접 링크")
+### 클릭 시 OAuth 로그인 흐름 시작[](https://nextauth-ko.wsbox.pw/getting-started/client#starts-oauth-sign-in-flow-when-clicked "직접 링크")
 
 기본적으로, `signIn()` 메소드를 인수 없이 호출하면 NextAuth.js 로그인 페이지로 리디렉션됩니다. 이를 건너뛰고 바로 공급자의 페이지로 리디렉션하려면 공급자의 `id`를 인수로 `signIn()` 메소드를 호출하세요.
 
@@ -400,7 +400,7 @@ export default () => (
 )
 ```
 
-### 클릭 시 이메일 로그인 흐름 시작[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#starts-email-sign-in-flow-when-clicked "직접 링크")
+### 클릭 시 이메일 로그인 흐름 시작[](https://nextauth-ko.wsbox.pw/getting-started/client#starts-email-sign-in-flow-when-clicked "직접 링크")
 
 이메일 흐름과 함께 사용할 때, 대상 `email`을 옵션으로 전달하세요.
 
@@ -412,7 +412,7 @@ export default ({ email }) => (
 )
 ```
 
-### `callbackUrl` 지정[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#specifying-a-callbackurl "직접 링크")
+### `callbackUrl` 지정[](https://nextauth-ko.wsbox.pw/getting-started/client#specifying-a-callbackurl "직접 링크")
 
 `callbackUrl`은 사용자가 로그인한 후 리디렉션될 URL을 지정합니다. 기본값은 로그인 시작한 페이지의 URL입니다.
 
@@ -423,9 +423,9 @@ export default ({ email }) => (
 - `signIn('google', { callbackUrl: 'http://localhost:3000/bar' })`
 - `signIn('email', { email, callbackUrl: 'http://localhost:3000/foo' })`
 
-URL은 [리디렉션 콜백 핸들러](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks#redirect-callback)에 의해 유효한 것으로 간주되어야 합니다. 기본적으로 호스트 이름이 같은 절대 URL이거나 슬래시로 시작하는 상대 URL이어야 합니다. 일치하지 않으면 홈페이지로 리디렉션됩니다. 다른 URL을 허용하려면 자체 [리디렉션 콜백](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks#redirect-callback)을 정의할 수 있습니다.
+URL은 [리디렉션 콜백 핸들러](https://nextauth-ko.wsbox.pw/configuration/callbacks#redirect-callback)에 의해 유효한 것으로 간주되어야 합니다. 기본적으로 호스트 이름이 같은 절대 URL이거나 슬래시로 시작하는 상대 URL이어야 합니다. 일치하지 않으면 홈페이지로 리디렉션됩니다. 다른 URL을 허용하려면 자체 [리디렉션 콜백](https://nextauth-ko.wsbox.pw/configuration/callbacks#redirect-callback)을 정의할 수 있습니다.
 
-### `redirect: false` 옵션 사용[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#using-the-redirect-false-option "직접 링크")
+### `redirect: false` 옵션 사용[](https://nextauth-ko.wsbox.pw/getting-started/client#using-the-redirect-false-option "직접 링크")
 
 :::note[참고]
 리디렉션 옵션은 `credentials` 및 `email` 공급자에만 사용할 수 있습니다.
@@ -460,7 +460,7 @@ URL은 [리디렉션 콜백 핸들러](https://nextauth-ko.wsbox.pw/docs/configu
 }
 ```
 
-### 추가 매개변수[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#additional-parameters "직접 링크")
+### 추가 매개변수[](https://nextauth-ko.wsbox.pw/getting-started/client#additional-parameters "직접 링크")
 
 `signIn()`의 세 번째 인수를 통해 `/authorize` 엔드포인트에 추가 매개변수를 전달할 수 있습니다.
 
@@ -472,14 +472,14 @@ URL은 [리디렉션 콜백 핸들러](https://nextauth-ko.wsbox.pw/docs/configu
 
 
 :::note[참고]
-[provider.authorizationParams](https://nextauth-ko.wsbox.pw/docs/configuration/providers/oauth#options)를 통해 이러한 매개 변수를 설정할 수도 있습니다.
+[provider.authorizationParams](https://nextauth-ko.wsbox.pw/configuration/providers/oauth#options)를 통해 이러한 매개 변수를 설정할 수도 있습니다.
 :::
 :::note[참고]
 다음 매개변수는 서버 측에서 항상 덮어씌워집니다: `redirect_uri`, `state`
 :::
 ___
 
-## signOut()[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#signout "직접 링크")
+## signOut()[](https://nextauth-ko.wsbox.pw/getting-started/client#signout "직접 링크")
 
 -   클라이언트 측: **예**
 -   서버 측: 아니요
@@ -494,15 +494,15 @@ import { signOut } from "next-auth/react"
 export default () => <button onClick={() => signOut()}>로그아웃</button>
 ```
 
-### `callbackUrl` 지정[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#specifying-a-callbackurl-1 "직접 링크")
+### `callbackUrl` 지정[](https://nextauth-ko.wsbox.pw/getting-started/client#specifying-a-callbackurl-1 "직접 링크")
 
 `signIn()` 함수와 마찬가지로, 옵션으로 `callbackUrl` 매개변수를 전달하여 `callbackUrl`을 지정할 수 있습니다.
 
 예: `signOut({ callbackUrl: 'http://localhost:3000/foo' })`
 
-URL은 [리디렉션 콜백 핸들러](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks#redirect-callback)에 의해 유효한 것으로 간주되어야 합니다. 기본적으로 호스트 이름이 같은 절대 URL이거나 슬래시로 시작하는 상대 URL이어야 합니다. 일치하지 않으면 홈페이지로 리디렉션됩니다. 다른 URL을 허용하려면 자체 [리디렉션 콜백](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks#redirect-callback)을 정의할 수 있습니다.
+URL은 [리디렉션 콜백 핸들러](https://nextauth-ko.wsbox.pw/configuration/callbacks#redirect-callback)에 의해 유효한 것으로 간주되어야 합니다. 기본적으로 호스트 이름이 같은 절대 URL이거나 슬래시로 시작하는 상대 URL이어야 합니다. 일치하지 않으면 홈페이지로 리디렉션됩니다. 다른 URL을 허용하려면 자체 [리디렉션 콜백](https://nextauth-ko.wsbox.pw/configuration/callbacks#redirect-callback)을 정의할 수 있습니다.
 
-### `redirect: false` 옵션 사용[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#using-the-redirect-false-option-1 "직접 링크")
+### `redirect: false` 옵션 사용[](https://nextauth-ko.wsbox.pw/getting-started/client#using-the-redirect-false-option-1 "직접 링크")
 
 `signOut`에 `redirect: false`를 전달하면 페이지가 다시 로드되지 않습니다. 세션이 삭제되고 `useSession` 훅이 알림을 받아 사용자가 자동으로 로그아웃된 상태로 표시됩니다. 이는 사용자에게 매우 좋은 경험을 제공할 수 있습니다.
 
@@ -511,10 +511,10 @@ URL은 [리디렉션 콜백 핸들러](https://nextauth-ko.wsbox.pw/docs/configu
 :::
 ___
 
-## SessionProvider[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#sessionprovider "직접 링크")
+## SessionProvider[](https://nextauth-ko.wsbox.pw/getting-started/client#sessionprovider "직접 링크")
 
 :::note[참고]
-App Router를 사용하는 경우, 서버 컨텍스트에서 [`getServerSession`](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#getserversession)을 사용하는 것을 권장합니다. (`SessionProvider`는 App Router에서 _사용할 수_ 있으며, 이는 페이지에서 마이그레이션하는 경우 더 쉬운 선택일 수 있습니다.)
+App Router를 사용하는 경우, 서버 컨텍스트에서 [`getServerSession`](https://nextauth-ko.wsbox.pw/configuration/nextjs#getserversession)을 사용하는 것을 권장합니다. (`SessionProvider`는 App Router에서 _사용할 수_ 있으며, 이는 페이지에서 마이그레이션하는 경우 더 쉬운 선택일 수 있습니다.)
 :::
 제공된 `<SessionProvider>`를 사용하면 `useSession()` 인스턴스가 [React Context](https://react.dev/learn/passing-data-deeply-with-context)를 내부적으로 사용하여 컴포넌트 간에 세션 객체를 공유할 수 있습니다. 또한 세션이 업데이트되고 탭/창 간에 동기화되도록 관리합니다.
 
@@ -555,13 +555,13 @@ export async function getServerSideProps({ req, res }) {
 }
 ```
 
-모든 페이지가 보호되어야 하는 경우 `_app`에서 `getInitialProps`를 사용하여 이를 수행할 수 있으며, 그렇지 않은 경우 개별 페이지 기준으로 수행할 수 있습니다. 또는 [대안 클라이언트 세션 처리](https://nextauth-ko.wsbox.pw/docs/getting-started/client#custom-client-session-handling)에서 설명된 방법을 사용하여 각 인증 확인이 차단되지 않도록 클라이언트 측에서 페이지별 인증 확인을 수행할 수 있습니다.
+모든 페이지가 보호되어야 하는 경우 `_app`에서 `getInitialProps`를 사용하여 이를 수행할 수 있으며, 그렇지 않은 경우 개별 페이지 기준으로 수행할 수 있습니다. 또는 [대안 클라이언트 세션 처리](https://nextauth-ko.wsbox.pw/getting-started/client#custom-client-session-handling)에서 설명된 방법을 사용하여 각 인증 확인이 차단되지 않도록 클라이언트 측에서 페이지별 인증 확인을 수행할 수 있습니다.
 
-### 옵션[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#options "직접 링크")
+### 옵션[](https://nextauth-ko.wsbox.pw/getting-started/client#options "직접 링크")
 
 세션 상태는 모든 열려 있는 탭/창 간에 자동으로 동기화되며, `refetchOnWindowFocus`가 `true`일 때 포커스를 얻거나 잃을 때마다 또는 상태가 변경될 때마다(예: 사용자가 로그인 또는 로그아웃할 때) 모두 업데이트됩니다.
 
-세션 만료 시간이 30일(기본값) 이상인 경우, 제공자의 기본 옵션을 변경할 필요가 없을 것입니다. 필요하다면, 클라이언트 측 함수에서 [`getSession()`](https://nextauth-ko.wsbox.pw/docs/getting-started/client#getsession)을 호출하여 모든 탭/창에서 세션 객체를 업데이트할 수 있습니다.
+세션 만료 시간이 30일(기본값) 이상인 경우, 제공자의 기본 옵션을 변경할 필요가 없을 것입니다. 필요하다면, 클라이언트 측 함수에서 [`getSession()`](https://nextauth-ko.wsbox.pw/getting-started/client#getsession)을 호출하여 모든 탭/창에서 세션 객체를 업데이트할 수 있습니다.
 
 하지만, 세션 동작을 사용자 정의해야 하거나 짧은 세션 만료 시간을 사용하는 경우, `useSession()` 훅의 동작을 사용자 정의하기 위해 제공자에게 옵션을 전달할 수 있습니다.
 
@@ -597,13 +597,13 @@ export default function App({
 
 `refetchInterval`을 낮은 값으로 설정하면 인증된 클라이언트의 네트워크 트래픽과 로드가 증가할 수 있으며, 호스팅 비용 및 성능에 영향을 미칠 수 있습니다.
 :::
-#### 기본 경로[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#base-path "직접 링크")
+#### 기본 경로[](https://nextauth-ko.wsbox.pw/getting-started/client#base-path "직접 링크")
 
 커스텀 기본 경로를 사용하는 경우, 애플리케이션의 진입점이 도메인 "/"의 루트가 아닌 다른 경로(예: "/my-app/")에 있다면, `basePath` prop을 사용하여 NextAuth.js가 이를 인식하도록 설정할 수 있습니다. 이렇게 하면 모든 리디렉션과 세션 처리가 예상대로 작동합니다.
 
-#### 세션 재조회 간격[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#refetch-interval "직접 링크")
+#### 세션 재조회 간격[](https://nextauth-ko.wsbox.pw/getting-started/client#refetch-interval "직접 링크")
 
-[세션 재조회](https://nextauth-ko.wsbox.pw/docs/getting-started/client#refetching-the-session) 옵션을 대안으로 참조하세요.
+[세션 재조회](https://nextauth-ko.wsbox.pw/getting-started/client#refetching-the-session) 옵션을 대안으로 참조하세요.
 
 `refetchInterval` 옵션은 세션이 만료되지 않도록 서버에 연락하는 데 사용할 수 있습니다.
 
@@ -611,13 +611,13 @@ export default function App({
 
 `refetchInterval`을 0이 아닌 값으로 설정하면 클라이언트가 세션 상태를 업데이트하기 위해 서버에 얼마나 자주 연락해야 하는지를 초 단위로 지정합니다. 세션 상태가 만료된 경우, 모든 열려 있는 탭/창이 이를 반영하도록 업데이트됩니다.
 
-`refetchInterval` 값은 항상 세션 `maxAge` [세션 옵션](https://nextauth-ko.wsbox.pw/docs/configuration/options#session)의 값보다 낮아야 합니다.
+`refetchInterval` 값은 항상 세션 `maxAge` [세션 옵션](https://nextauth-ko.wsbox.pw/configuration/options#session)의 값보다 낮아야 합니다.
 
 기본적으로, 세션 폴링은 장치가 인터넷에 접속되어 있지 않더라도 시도합니다. 이를 방지하려면 `refetchWhenOffline`을 `false`로 설정할 수 있습니다. 이는 [`navigator.onLine`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine)을 사용하여 장치가 온라인일 때만 세션을 폴링합니다.
 
-#### 창 포커스 시 재조회[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#refetch-on-window-focus "직접 링크")
+#### 창 포커스 시 재조회[](https://nextauth-ko.wsbox.pw/getting-started/client#refetch-on-window-focus "직접 링크")
 
-[세션 재조회](https://nextauth-ko.wsbox.pw/docs/getting-started/client#refetching-the-session) 옵션을 대안으로 참조하세요.
+[세션 재조회](https://nextauth-ko.wsbox.pw/getting-started/client#refetching-the-session) 옵션을 대안으로 참조하세요.
 
 `refetchOnWindowFocus` 옵션은 탭/창에 포커스가 맞춰질 때 자동으로 세션 상태를 업데이트할지 여부를 제어하는 데 사용할 수 있습니다.
 
@@ -628,13 +628,13 @@ export default function App({
 :::note[참고]
 Next.js 애플리케이션의 _app.js에 대한 자세한 내용은 [Next.js 설명서](https://nextjs.org/docs/pages/building-your-application/routing/custom-app)를 참조하세요.
 :::
-### 커스텀 기본 경로[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#custom-base-path "직접 링크")
+### 커스텀 기본 경로[](https://nextauth-ko.wsbox.pw/getting-started/client#custom-base-path "직접 링크")
 
-Next.js 애플리케이션이 커스텀 기본 경로를 사용하는 경우, `NEXTAUTH_URL` 환경 변수를 API 엔드포인트의 전체 경로로 설정하세요 - 아래 예제와 [여기](https://nextauth-ko.wsbox.pw/docs/configuration/options#nextauth_url)에 설명된 대로 설정합니다.
+Next.js 애플리케이션이 커스텀 기본 경로를 사용하는 경우, `NEXTAUTH_URL` 환경 변수를 API 엔드포인트의 전체 경로로 설정하세요 - 아래 예제와 [여기](https://nextauth-ko.wsbox.pw/configuration/options#nextauth_url)에 설명된 대로 설정합니다.
 
 또한, `<SessionProvider>`에 `basePath` 페이지 prop을 전달하여 NextAuth.js가 완전히 구성되고 커스텀 기본 경로를 사용할 수 있도록 하세요.
 
-#### 예제[](https://nextauth-ko.wsbox.pw/docs/getting-started/client#example-3 "직접 링크")
+#### 예제[](https://nextauth-ko.wsbox.pw/getting-started/client#example-3 "직접 링크")
 
 이 예제에서는 커스텀 기본 경로로 `/custom-route`를 사용합니다.
 

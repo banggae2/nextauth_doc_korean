@@ -34,7 +34,11 @@ const config = {
     locales: ['ko'],
     localeConfigs: {
       ko: {
-        htmlLang: 'ko-KR'
+        label: '한국어',
+        direction: 'ltr',
+        htmlLang: 'ko',
+        calendar: 'gregory',
+        path: 'ko'
       }
     }
   },
@@ -48,6 +52,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars_doc.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -102,7 +107,7 @@ const config = {
             items: [
               {
                 label: '문서',
-                to: '/docs/getting-started/introduction',
+                to: '/getting-started/introduction',
               },
             ],
           },

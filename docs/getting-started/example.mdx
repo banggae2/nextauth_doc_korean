@@ -35,14 +35,14 @@ import TabItem from '@theme/TabItem';
 
 :::info[참고]
 
-TypeScript를 사용하는 경우, NextAuth.js는 패키지 내에 타입 정의를 포함하고 있습니다. `next-auth`의 TypeScript에 대해 더 알고 싶다면 [TypeScript 문서](https://nextauth-ko.wsbox.pw/docs/getting-started/typescript)를 확인하세요.
+TypeScript를 사용하는 경우, NextAuth.js는 패키지 내에 타입 정의를 포함하고 있습니다. `next-auth`의 TypeScript에 대해 더 알고 싶다면 [TypeScript 문서](https://nextauth-ko.wsbox.pw/getting-started/typescript)를 확인하세요.
 :::
 
 ### API 라우트 추가
 
 프로젝트에 NextAuth.js를 추가하려면 `pages/api/auth` 디렉토리에 `[...nextauth].js` 파일을 생성하세요. 이 파일은 NextAuth.js의 동적 라우트 핸들러를 포함하며, 모든 전역 NextAuth.js 설정도 포함됩니다.
 
-Next.js 13.2 이상과 새로운 App Router (`app/`)를 사용하는 경우, 새로운 [라우트 핸들러](https://nextjs.org/docs/app/building-your-application/routing/router-handlers)를 사용하여 설정을 초기화할 수 있습니다. [가이드](https://nextauth-ko.wsbox.pw/docs/configuration/initialization#route-handlers-app)를 따르세요.
+Next.js 13.2 이상과 새로운 App Router (`app/`)를 사용하는 경우, 새로운 [라우트 핸들러](https://nextjs.org/docs/app/building-your-application/routing/router-handlers)를 사용하여 설정을 초기화할 수 있습니다. [가이드](https://nextauth-ko.wsbox.pw/configuration/initialization#route-handlers-app)를 따르세요.
 
 
 
@@ -68,12 +68,12 @@ export default NextAuth(authOptions)
 
 **추가 읽기 자료**:
 
-- 제공자, 데이터베이스 및 기타 옵션을 구성하는 방법에 대한 자세한 내용은 [옵션 문서](https://nextauth-ko.wsbox.pw/docs/configuration/options)를 참조하세요.
-- 인증 제공자를 추가하는 방법에 대해서는 [여기](https://nextauth-ko.wsbox.pw/docs/providers)를 읽어보세요.
+- 제공자, 데이터베이스 및 기타 옵션을 구성하는 방법에 대한 자세한 내용은 [옵션 문서](https://nextauth-ko.wsbox.pw/configuration/options)를 참조하세요.
+- 인증 제공자를 추가하는 방법에 대해서는 [여기](https://nextauth-ko.wsbox.pw/providers)를 읽어보세요.
 
 #### 공유 세션 상태 구성
 
-`useSession`을 사용하려면 먼저 애플리케이션 최상위에 세션 컨텍스트인 [`<SessionProvider />`](https://nextauth-ko.wsbox.pw/docs/getting-started/client#sessionprovider)를 노출시켜야 합니다:
+`useSession`을 사용하려면 먼저 애플리케이션 최상위에 세션 컨텍스트인 [`<SessionProvider />`](https://nextauth-ko.wsbox.pw/getting-started/client#sessionprovider)를 노출시켜야 합니다:
 
 
 
@@ -96,12 +96,12 @@ export default function App({
 
 :::tip[팁]
 
-[클라이언트 문서](https://nextauth-ko.wsbox.pw/docs/getting-started/client)를 확인하여 NextAuth.js 클라이언트를 사용하여 사용자 경험과 페이지 성능을 향상시키는 방법을 알아보세요. Next.js App Router를 사용하는 경우, `<SessionProvider />`는 클라이언트 컴포넌트를 필요로 하므로 루트 레이아웃 내에 배치할 수 없습니다. 자세한 내용은 [Next.js 문서](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts)를 참고하세요.
+[클라이언트 문서](https://nextauth-ko.wsbox.pw/getting-started/client)를 확인하여 NextAuth.js 클라이언트를 사용하여 사용자 경험과 페이지 성능을 향상시키는 방법을 알아보세요. Next.js App Router를 사용하는 경우, `<SessionProvider />`는 클라이언트 컴포넌트를 필요로 하므로 루트 레이아웃 내에 배치할 수 없습니다. 자세한 내용은 [Next.js 문서](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts)를 참고하세요.
 :::
 
 ### 프론트엔드 - React Hook 추가
 
-NextAuth.js 클라이언트의 [`useSession()`](https://nextauth-ko.wsbox.pw/docs/getting-started/client#usesession) React Hook은 사용자가 로그인했는지 확인하는 가장 쉬운 방법입니다.
+NextAuth.js 클라이언트의 [`useSession()`](https://nextauth-ko.wsbox.pw/getting-started/client#usesession) React Hook은 사용자가 로그인했는지 확인하는 가장 쉬운 방법입니다.
 
 
 
@@ -132,7 +132,7 @@ export default function Component() {
 
 ### 백엔드 - API 라우트
 
-API 라우트를 보호하려면 [`getServerSession()`](https://nextauth-ko.wsbox.pw/docs/configuration/nextjs#unstable_getserversession) 메서드를 사용할 수 있습니다.
+API 라우트를 보호하려면 [`getServerSession()`](https://nextauth-ko.wsbox.pw/configuration/nextjs#unstable_getserversession) 메서드를 사용할 수 있습니다.
 
 
 
@@ -160,9 +160,9 @@ export default async (req, res) => {
 
 #### NextAuth.js 콜백 사용
 
-NextAuth.js는 [내장된 콜백](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks)을 통해 인증 흐름의 다양한 부분에 후킹할 수 있습니다.
+NextAuth.js는 [내장된 콜백](https://nextauth-ko.wsbox.pw/configuration/callbacks)을 통해 인증 흐름의 다양한 부분에 후킹할 수 있습니다.
 
-예를 들어, 로그인 시 프론트엔드 클라이언트로 값을 전달하려면 [`session`](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks#session-callback) 및 [`jwt`](https://nextauth-ko.wsbox.pw/docs/configuration/callbacks#jwt-callback) 콜백을 조합하여 사용할 수 있습니다:
+예를 들어, 로그인 시 프론트엔드 클라이언트로 값을 전달하려면 [`session`](https://nextauth-ko.wsbox.pw/configuration/callbacks#session-callback) 및 [`jwt`](https://nextauth-ko.wsbox.pw/configuration/callbacks#jwt-callback) 콜백을 조합하여 사용할 수 있습니다:
 
 ```jsx title="pages/api/auth/\[...nextauth\].js"
 ...
@@ -183,7 +183,7 @@ callbacks: {
 ...
 ```
 
-이제 [`getSession`](https://nextauth-ko.wsbox.pw/docs/getting-started/client#getsession) 또는 [`useSession`](https://nextauth-ko.wsbox.pw/docs/getting-started/client#usesession)을 호출할 때 반환되는 데이터 객체에 `accessToken` 값이 포함됩니다.
+이제 [`getSession`](https://nextauth-ko.wsbox.pw/getting-started/client#getsession) 또는 [`useSession`](https://nextauth-ko.wsbox.pw/getting-started/client#usesession)을 호출할 때 반환되는 데이터 객체에 `accessToken` 값이 포함됩니다.
 
 
 
@@ -200,9 +200,9 @@ export default function Component() {
 
 ## 콜백 URL 구성 (OAuth 전용)
 
-OAuth 제공자를 사용하는 경우, [내장 제공자](https://nextauth-ko.wsbox.pw/docs/configuration/providers/oauth) 중 하나를 통해서든 [사용자 지정 제공자](https://nextauth-ko.wsbox.pw/docs/configuration/providers/oauth#using-a-custom-provider)를 통해서든, 제공자의 설정에서 콜백 URL을 구성해야 합니다. 각 제공자는 이를 설정하는 방법에 대한 지침을 제공하는 "Configuration" 섹션을 가지고 있습니다.
+OAuth 제공자를 사용하는 경우, [내장 제공자](https://nextauth-ko.wsbox.pw/configuration/providers/oauth) 중 하나를 통해서든 [사용자 지정 제공자](https://nextauth-ko.wsbox.pw/configuration/providers/oauth#using-a-custom-provider)를 통해서든, 제공자의 설정에서 콜백 URL을 구성해야 합니다. 각 제공자는 이를 설정하는 방법에 대한 지침을 제공하는 "Configuration" 섹션을 가지고 있습니다.
 
-OAuth 제공자와 통합하는 방법을 배우려면 [이 단계](https://nextauth-ko.wsbox.pw/docs/configuration/providers/oauth#how-to)를 따르세요.
+OAuth 제공자와 통합하는 방법을 배우려면 [이 단계](https://nextauth-ko.wsbox.pw/configuration/providers/oauth#how-to)를 따르세요.
 
 ## 프로덕션 배포
 
@@ -219,4 +219,4 @@ NEXTAUTH_URL=https://example.com
 Vercel에서 환경 변수를 설정하려면, [대시보드](https://vercel.com/dashboard) 또는 `vercel env pull` [명령어](https://vercel.com/docs/build-step#development-environment-variables)를 사용하세요
 :::
 
-자세한 내용은 [배포 페이지](https://nextauth-ko.wsbox.pw/docs/deployment)를 확인하세요.
+자세한 내용은 [배포 페이지](https://nextauth-ko.wsbox.pw/deployment)를 확인하세요.

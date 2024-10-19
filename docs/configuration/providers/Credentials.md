@@ -49,7 +49,7 @@ providers: [
 ...
 ```
 
-[Credentials 공급자 문서](https://nextauth-ko.wsbox.pw/docs/providers/credentials)에서 더 많은 정보를 확인해 보세요.
+[Credentials 공급자 문서](https://nextauth-ko.wsbox.pw/providers/credentials)에서 더 많은 정보를 확인해 보세요.
 
 :::note[참고]
 Credentials 공급자는 세션에 대해 JSON 웹 토큰이 활성화된 경우에만 사용할 수 있습니다. Credentials 공급자로 인증된 사용자는 데이터베이스에 지속되지 않습니다.

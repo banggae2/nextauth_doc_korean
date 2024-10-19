@@ -19,15 +19,15 @@ Azure AD B2C returns the following fields on `Account`:
 
 See their [docs](https://docs.microsoft.com/en-us/azure/active-directory-b2c/access-tokens). Remember to add these fields to your database schema, in case if you are using an [Adapter](https://next-auth.js.org/adapters).
 
-## Documentation[](https://nextauth-ko.wsbox.pw/docs/providers/azure-ad-b2c#documentation "Direct link to heading")
+## Documentation[](https://nextauth-ko.wsbox.pw/providers/azure-ad-b2c#documentation "Direct link to heading")
 
 [https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
 
-## Configuration[](https://nextauth-ko.wsbox.pw/docs/providers/azure-ad-b2c#configuration "Direct link to heading")
+## Configuration[](https://nextauth-ko.wsbox.pw/providers/azure-ad-b2c#configuration "Direct link to heading")
 
 [https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)
 
-## Options[](https://nextauth-ko.wsbox.pw/docs/providers/azure-ad-b2c#options "Direct link to heading")
+## Options[](https://nextauth-ko.wsbox.pw/providers/azure-ad-b2c#options "Direct link to heading")
 
 The **Azure Active Directory Provider** comes with a set of default options:
 
@@ -35,7 +35,7 @@ The **Azure Active Directory Provider** comes with a set of default options:
 
 You can override any of the options to suit your own use case.
 
-## Configuration (Basic)[](https://nextauth-ko.wsbox.pw/docs/providers/azure-ad-b2c#configuration-basic "Direct link to heading")
+## Configuration (Basic)[](https://nextauth-ko.wsbox.pw/providers/azure-ad-b2c#configuration-basic "Direct link to heading")
 
 Basic configuration sets up Azure AD B2C to return an ID Token. This should be done as a prerequisite prior to running through the Advanced configuration.
 
@@ -61,7 +61,7 @@ Note: For the step "User attributes and token claims" you might minimally:
     -   Identity Provider Access Token
     -   User's Object ID
 
-## Example[](https://nextauth-ko.wsbox.pw/docs/providers/azure-ad-b2c#example "Direct link to heading")
+## Example[](https://nextauth-ko.wsbox.pw/providers/azure-ad-b2c#example "Direct link to heading")
 
 In `.env.local` create the following entries:
 
@@ -91,7 +91,7 @@ providers: [
 
 ```
 
-## Configuration (Advanced)[](https://nextauth-ko.wsbox.pw/docs/providers/azure-ad-b2c#configuration-advanced "Direct link to heading")
+## Configuration (Advanced)[](https://nextauth-ko.wsbox.pw/providers/azure-ad-b2c#configuration-advanced "Direct link to heading")
 
 Advanced configuration sets up Azure AD B2C to return an Authorization Token. This builds on the steps completed in the Basic configuration above.
 
@@ -99,7 +99,7 @@ Step 4: Add a Web API application [https://docs.microsoft.com/en-us/azure/active
 
 Note: this is a second app registration (similar to Step 2) but with different setup and configuration.
 
-## Example[](https://nextauth-ko.wsbox.pw/docs/providers/azure-ad-b2c#example-1 "Direct link to heading")
+## Example[](https://nextauth-ko.wsbox.pw/providers/azure-ad-b2c#example-1 "Direct link to heading")
 
 Nothing in `.env.local` needs to change here. The only update is in `pages/api/auth/[...nextauth].js` where you will need to add the additional scopes that were created in Step 4 above:
 
