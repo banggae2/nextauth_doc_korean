@@ -67,7 +67,7 @@ OAuth 흐름은 일반적으로 6단계로 구성됩니다:
 
 7. 제공자가 설정되면 다음 URL에서 로그인할 수 있습니다: `[origin]/api/auth/signin`. 이는 구성된 모든 제공자가 포함된 브랜드가 없는 자동 생성 페이지입니다.
 
-   ![Signin Screenshot](https://nextauth-ko.wsbox.pw/docs/img/signin.png)
+   ![](https://nextauth-ko.wsbox.pw/img/signin.png)
 
 ## 옵션
 
