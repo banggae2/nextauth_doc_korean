@@ -2,7 +2,7 @@
 id: dropbox
 ---
 
-# Dropbox
+# 🌐 Dropbox
 
 :::info[정보]
 이 문서는 아직 번역이 되어있지않습니다! 조금만 기다려주세요!
