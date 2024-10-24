@@ -30,3 +30,7 @@
 }
 
 a { font-weight: 700; }
+
+.pagination-nav {
+  display: none;
+}
